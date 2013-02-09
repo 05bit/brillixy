@@ -4,6 +4,11 @@ class BasePanel(object):
     span = None
     permissions = []
 
+    def __init__(self, request):
+        self.has_perm = True
+        if self.permissions:
+            self.has_perm = request.user.has_perm(*self.permissions)                
+
 
 class ModelsListPanel(BasePanel):
     template = 'adminkit/_model_index.html'

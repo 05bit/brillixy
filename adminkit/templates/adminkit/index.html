@@ -4,9 +4,14 @@
 {% block content %}
     <div class="row">
     {% for panel in panels %}
+        {% if panel.has_perm %}
         <div class="span{{ panel.span|default:6 }}">
+            {% if panel.title %}
+                <h2>{{ panel.title }}</h2>
+            {% endif %}
             {% include panel.template with panel=panel %}
         </div>
+        {% endif %}
     {% endfor %}
     </div>
 {% endblock %}
