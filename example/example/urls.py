@@ -4,6 +4,10 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+# Enable AdminKit extra customisations
+from adminkit import adminkit
+adminkit.setup(admin.site)
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'example.views.home', name='home'),
