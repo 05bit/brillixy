@@ -1,0 +1,1 @@
+Out of box Django admin improvements with straightforward customization and hacks free.
