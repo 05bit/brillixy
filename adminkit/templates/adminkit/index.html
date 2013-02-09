@@ -2,5 +2,11 @@
 {% load i18n %}
 
 {% block content %}
-    {% include "adminkit/_model_index.html" %}
+    <div class="row">
+    {% for panel in panels %}
+        <div class="span{{ panel.span|default:6 }}">
+            {% include panel.template with panel=panel %}
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}

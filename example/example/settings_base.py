@@ -154,3 +154,11 @@ LOGGING = {
         },
     }
 }
+
+# AdminKit settings
+ADMINKIT_INDEX = {
+    'panels': [
+        'adminkit.panels.AllModelsPanel',
+        'adminkit.panels.AllModelsPanel'
+    ]
+}

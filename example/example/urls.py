@@ -4,9 +4,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-# Enable AdminKit extra customisations
-from adminkit import adminkit
-adminkit.setup(admin.site)
+# Enable AdminKit extra customizations
+from adminkit import site
+site.setup(admin.site)
 
 urlpatterns = patterns('',
     # Examples:
