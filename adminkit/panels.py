@@ -16,3 +16,6 @@ class ModelsListPanel(BasePanel):
 
 class AllModelsPanel(BasePanel):
     template = 'adminkit/_model_index.html'
+
+    def app_groups(self):
+        pass

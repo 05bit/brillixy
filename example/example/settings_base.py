@@ -118,12 +118,14 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Place AdminKit right before admin
+    'adminkit',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
-    'adminkit',
+    'example_core',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -159,6 +161,6 @@ LOGGING = {
 ADMINKIT_INDEX = {
     'panels': [
         'adminkit.panels.AllModelsPanel',
-        'adminkit.panels.AllModelsPanel'
+        'example_core.admin.MyModelsPanel'
     ]
 }
