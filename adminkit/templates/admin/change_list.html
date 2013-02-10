@@ -20,17 +20,20 @@
 {% block content_title %}{% endblock %}
 
 {% block content %}
+    <!-- Errors -->
     {% if cl.formset.errors %}
-            <p class="errornote">
+        <div class="alert alert-danger">
             {% blocktrans count cl.formset.errors|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
-            </p>
+        
             {{ cl.formset.non_form_errors }}
+        </div>
     {% endif %}
 
     <div class="row">
         {% block filters %}
             {% if cl.has_filters or cl.search_fields %}
             <div class="span3">
+                <!-- Search -->
                 {% if cl.search_fields %}
                 <div id="changelist-search" class="well well-condensed">
                     <h2>{% trans 'Search' %}</h2>
@@ -39,6 +42,7 @@
                 </div>
                 {% endif %}
 
+                <!-- Filters -->
                 {% if cl.has_filters %}
                 <div id="changelist-filter" class="well well-condensed">
                     <h2>{% trans 'Filter' %} {% if cl.params %}<small><a href="?" class="btn">{% trans 'reset' %}</a></small>{% endif %}</h2>
@@ -51,8 +55,15 @@
 
         {% block result_list %}
         <div class="{% if cl.has_filters or cl.search_fields %}span9{% else %}span12{% endif %}">
-            <form id="changelist-form" class="form-horizontal" action="" method="post"{% if cl.formset.is_multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
+            <form id="changelist-form" class="form-horizontal" action="" method="post"{% if cl.formset.is_multipart %} enctype="multipart/form-data"{% endif %}>
 
+                <!-- Hidden data -->                
+                {% csrf_token %}
+                {% if cl.formset %}
+                    <div style="display:none;">{{ cl.formset.management_form }}</div>
+                {% endif %}
+
+                <!-- Actions -->
                 <div id="changelist-actions">
                     {% block object-tools %}
                         {% if has_add_permission %}
@@ -68,13 +79,11 @@
                     {% endblock %}
                 </div>
 
+            <!-- Objects -->
             {% result_list cl %}
 
+            <!-- Pagination -->
             {% block pagination %}{% pagination cl %}{% endblock %}
-
-            {% if cl.formset %}
-                <div>{{ cl.formset.management_form }}</div>
-            {% endif %}
         </form>
 
         </div>
