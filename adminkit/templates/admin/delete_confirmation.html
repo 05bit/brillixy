@@ -1,7 +1,6 @@
 {% extends "adminkit/base.html" %}
 {% load i18n %}
 
-
 {% block breadcrumbs-middle %}
     <li>
         <span class="divider">/</span>
@@ -9,7 +8,6 @@
         {{ object_name }} <a href="../">{{ object|truncatewords:"18" }}</a>
     </li>
 {% endblock %}
-
 
 {% block content %}
     {% if perms_lacking or protected %}
