@@ -4,7 +4,7 @@ class BasePanel(object):
     span = None
     permissions = []
 
-    def __init__(self, request):
+    def __init__(self, site, request):
         self.has_perm = True
         if self.permissions:
             self.has_perm = request.user.has_perm(*self.permissions)                
@@ -19,3 +19,7 @@ class AllModelsPanel(BasePanel):
 
     def app_groups(self):
         pass
+
+
+class ObjectsListPanel(BasePanel):
+    template = 'adminkit/_object_index.html'

@@ -1,6 +1,14 @@
 {% extends "adminkit/base.html" %}
 {% load i18n %}
 
+{% block extrastyle %}
+    <link href="{{ STATIC_URL }}adminkit/css/index.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
 {% block content %}
     <div class="row">
     {% for panel in panels %}

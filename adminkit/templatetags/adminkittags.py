@@ -1,3 +1,4 @@
+from django.conf import settings
 from django import template
 
 register = template.Library()
@@ -29,3 +30,24 @@ def regroup_apps(apps, groups):
         return apps_regroup
     else:
         return apps
+
+
+@register.filter
+def user_nice_name(user):
+    for method in ('get_short_name', 'get_username', 'get_full_name'):
+        if hasattr(user, method):
+            name = getattr(user, method)()
+            if name:
+                return name
+    return user.username
+
+
+@register.simple_tag
+def branding_logo():
+    default = '%sadminkit/logo.png' % settings.STATIC_URL
+    return settings.ADMINKIT_BRANDING.get('logo', default)
+
+
+# @register.simple_tag
+# def branding_title():
+#     return settings.ADMINKIT_BRANDING.get('title', u"ADMIN")

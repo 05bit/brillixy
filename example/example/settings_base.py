@@ -160,7 +160,12 @@ LOGGING = {
 # AdminKit settings
 ADMINKIT_INDEX = {
     'panels': [
+        'example_core.admin.MyModelsPanel',
         'adminkit.panels.AllModelsPanel',
-        'example_core.admin.MyModelsPanel'
     ]
+}
+
+ADMINKIT_BRANDING = {
+    'logo': '%slogo.png' % STATIC_URL,
+    # 'title': u"AdminKit Example",
 }

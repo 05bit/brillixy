@@ -1,19 +1,22 @@
 Release 0.9beta
 ===============
 
-1. Dashboard customization:
+1. Basic dashboard customization:
     + diff. dashboard for different users (permissions)
     + all models list widget
-    - custom models list widget
-    - objects list widget
-    - actions widget
-    - custom widget
+    - logo
 
 2. New objects index page
 
 3. New object add / edit page
 
 4. Custom css & js
+
+5. Advanced dashboard customization:
+    - custom models list widget
+    - objects list widget
+    - actions widget
+    - custom widget
 
 5. Documentation
 

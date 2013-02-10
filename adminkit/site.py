@@ -39,9 +39,9 @@ def get_panels(site, request):
         for panel in panels_classes:
             panel_mod, panel_cls = panel.rsplit('.', 1)
             module = __import__(panel_mod, fromlist=[panel_cls])
-            panels.append(getattr(module, panel_cls)(request))
+            panels.append(getattr(module, panel_cls)(site, request))
     else:
-        panels.append(AllModelsPanel(request))
+        panels.append(AllModelsPanel(site, request))
     return panels
 
 
