@@ -15,8 +15,8 @@ Release 0.9beta
     + basics
     + list editable
     + pagination
-    - sorting
-    - actions confirm
+    + sorting
+    + actions confirm
     - date hierarchy
 
 3. New object add / edit page

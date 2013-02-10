@@ -1,49 +1,52 @@
 {% load i18n admin_static %}
 
 {% if result_hidden_fields %}
-    <div class="hiddenfields">
+    <div style="display:none;">
         {% for item in result_hidden_fields %}{{ item }}{% endfor %}
     </div>
 {% endif %}
 
 {% if results %}
 <table id="result_list" class="table table-condensed table-striped table-bordered">
-<thead>
-    <tr>
-    {% for header in result_headers %}
-    <th scope="col" {{ header.class_attrib }}>
-         <span>{% if header.sortable %}<a href="{{ header.url_primary }}">{{ header.text|capfirst }}</a>{% else %}<span>{{ header.text|capfirst }}</span>{% endif %}</span>
+    <thead>
+        <tr>
+        {% for header in result_headers %}
+        <th>
+            <span>{% if header.sortable %}<a href="{{ header.url_primary }}">{{ header.text|capfirst }}</a>{% else %}<span>{{ header.text|capfirst }}</span>{% endif %}</span>
 
-         {% if header.sortable %}
-             {% if header.sort_priority > 0 %}
-                <div class="sortoptions">
-                    &nbsp;&nbsp;
-                    
-                    <a href="{{ header.url_remove }}" title="{% trans "Remove from sorting" %}"><i class="icon-remove-sign"></i></a>
-                    
-                    <a href="{{ header.url_toggle }}" title="{% trans "Toggle sorting" %}">{% if header.ascending %}<i class="icon-sort-up"></i>{% else %}<i class="icon-sort-down"></i>{% endif %}</a>
+            <!-- Sorting options -->
+            {% if header.sortable %}
+                {% if header.sort_priority > 0 %}
+                    <div class="sortoptions">
+                        &nbsp;&nbsp;
 
-                    {% if num_sorted_fields > 1 %}<span class="label" title="{% blocktrans with priority_number=header.sort_priority %}Sorting priority: {{ priority_number }}{% endblocktrans %}">{{ header.sort_priority }}</span>{% endif %}
-                </div>
+                        <a href="{{ header.url_remove }}" title="{% trans "Remove from sorting" %}"><i class="icon-remove-sign"></i></a>
+                        
+                        <a href="{{ header.url_toggle }}" title="{% trans "Toggle sorting" %}">{% if header.ascending %}<i class="icon-sort-up"></i>{% else %}<i class="icon-sort-down"></i>{% endif %}</a>
+
+                        {% if num_sorted_fields > 1 %}<span class="label" title="{% blocktrans with priority_number=header.sort_priority %}Sorting priority: {{ priority_number }}{% endblocktrans %}">{{ header.sort_priority }}</span>{% endif %}
+                    </div>
+                {% endif %}
             {% endif %}
-        {% endif %}
-    </th>
-    {% endfor %}
-    </tr>
-</thead>
-
-<tbody>
-    {% for result in results %}
-        {% if result.form.non_field_errors %}
-            <tr>
-                <td colspan="{{ result|length }}">{{ result.form.non_field_errors }}</td>
-            </tr>
-        {% endif %}
-
-        <tr class="{% cycle 'row1' 'row2' %}">
-            {% for item in result %}{{ item }}{% endfor %}
+        </th>
+        {% endfor %}
         </tr>
-    {% endfor %}
-</tbody>
+    </thead>
+
+    <tbody>
+        {% for result in results %}
+            <!-- Errors -->
+            {% if result.form.non_field_errors %}
+                <tr>
+                    <td colspan="{{ result|length }}">{{ result.form.non_field_errors }}</td>
+                </tr>
+            {% endif %}
+
+            <!-- Objects -->
+            <tr class="{% cycle 'row1' 'row2' %}">
+                {% for item in result %}{{ item }}{% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
 </table>
 {% endif %}

@@ -68,6 +68,10 @@
                     <li>
                         <a href="{% url 'admin:index' %}" class="btn btn-primary"><i class="icon-list"></i> {% trans 'Home' %}</a>
                     </li>
+                    
+                    {% block breadcrumbs-middle %}
+                    {% endblock %}
+
                     {% if title %}
                     <li><span class="divider">/</span> <strong>{{ title }}</strong></li>
                     {% endif %}

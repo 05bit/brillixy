@@ -25,9 +25,7 @@
 
 .sortoptions {
     display: inline-block;
-    /*margin-left: 30px;*/
 }
     .sortoptions a {
         text-decoration: none;
-        text-align: right;
     }
