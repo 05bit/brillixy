@@ -1,3 +1,8 @@
 body {
     padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.well.well-condensed {
+    padding: 10px;
 }

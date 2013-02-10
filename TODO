@@ -1,10 +1,14 @@
 Release 0.9beta
 ===============
 
+0. Core stuff:
+    - {% load url from future %} issue: with Django upgrade
+      to 1.5 it will cause error
+
 1. Basic dashboard customization:
     + diff. dashboard for different users (permissions)
     + all models list widget
-    - logo
+    + logo
 
 2. New objects index page
 

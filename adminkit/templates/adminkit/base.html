@@ -2,6 +2,7 @@
 <html>
 <head>
 {% load adminkittags i18n %}
+{% load url from future %}
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
 
@@ -25,7 +26,7 @@
                 <div class="row">
                     <div id="branding" class="span3" style="position: relative">
                         {% block branding %}
-                            <a href="#"><img src="{% branding_logo %}"></a>
+                            <a href="{% url 'admin:index' %}"><img src="{% branding_logo %}"></a>
                             {#<a href="#"><span class="badge" style="position: absolute; left: 50%; top: 80%">{% branding_title %}</span></a>#}
                         {% endblock %}
                     </div>
@@ -46,10 +47,10 @@
                                 {% endif %}
 
                                 {% if user.has_usable_password %}
-                                    <a href="{# url 'admin:password_change' #}" class="btn">{% trans 'Change password' %}</a>
+                                    <a href="{% url 'admin:password_change' %}" class="btn">{% trans 'Change password' %}</a>
                                 {% endif %}
 
-                                <a href="{# url 'admin:logout' #}" class="btn">{% trans 'Log out' %}</a>
+                                <a href="{% url 'admin:logout' %}" class="btn">{% trans 'Log out' %}</a>
                                 </div>
                             {% endblock %}
                         </div>
@@ -58,23 +59,36 @@
                 </div>
             </div>
             <hr>
+
+            <!-- Breadcrumbs -->
+            {% block breadcrumbs %}
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="{% url 'admin:index' %}" class="btn btn-primary"><i class="icon icon-white icon-list"></i> {% trans 'Home' %}</a>
+                    </li>
+                    {% if title %}
+                    <li><span class="divider">/</span> <strong>{{ title }}</strong></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endblock %}
+
         </div>
         <!-- END Header -->
-
-        {% block breadcrumbs %}
-        <div class="breadcrumbs">
-        <a href="{# url 'admin:index' #}">{% trans 'Home' %}</a>
-        {% if title %} &rsaquo; {{ title }}{% endif %}
-        </div>
-        {% endblock %}
     {% endif %}
 
     <!-- Messages -->
     {% block messages %}
         {% if messages %}
-        <ul class="messagelist">{% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}</ul>
+        <div class="container">
+            {% for message in messages %}
+            <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                <a class="close" data-dismiss="alert">&times;</a>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
         {% endif %}
     {% endblock messages %}
     <!-- END Messages -->

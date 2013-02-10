@@ -1,0 +1,19 @@
+#changelist-filter {}
+    #changelist-filter h2 { font-size: 1.25em; line-height: 1.25em; margin-top: 0px; }
+    #changelist-filter h3 { font-size: 1.0em; line-height: 1em; margin-top: 0px; }
+
+#changelist-search {
+    margin-bottom: 15px;
+}
+    #changelist-search h2 { font-size: 1.25em; line-height: 1.25em; margin-top: 0px; }
+    #changelist-search form { margin-bottom: 0px; }
+        #changelist-search .input-append { margin-bottom: 0px; }
+
+    #searchbar { width: 145px; }
+
+#changelist-actions {
+    margin-bottom: 15px;
+}
+    #changelist-actions > span {
+        margin-right: 15px;
+    }
