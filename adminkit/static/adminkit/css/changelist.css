@@ -18,3 +18,7 @@
     #changelist-actions > span {
         margin-right: 15px;
     }
+
+.action-checkbox-column { width: 1.5em; }
+    .action-checkbox-column .text,
+    .action-checkbox { text-align: center !important; }

@@ -11,6 +11,11 @@ Release 0.9beta
     + logo
 
 2. New objects index page
+    + basics
+    + list editable
+    - pagination
+    - sorting
+    - actions confirm
 
 3. New object add / edit page
 
