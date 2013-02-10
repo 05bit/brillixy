@@ -22,3 +22,12 @@
 .action-checkbox-column { width: 1.5em; }
     .action-checkbox-column .text,
     .action-checkbox { text-align: center !important; }
+
+.sortoptions {
+    display: inline-block;
+    /*margin-left: 30px;*/
+}
+    .sortoptions a {
+        text-decoration: none;
+        text-align: right;
+    }
