@@ -1,0 +1,5 @@
+.panel {}
+    .panel .model-index big {
+        font-size: 1.40em;
+        line-height: 1.40em;
+    }

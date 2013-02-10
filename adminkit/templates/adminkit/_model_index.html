@@ -1,34 +1,33 @@
 {% load adminkittags i18n %}
 
 {% if app_list %}
+<div class="model-index">
     {% for app in app_list|regroup_apps:panel.app_groups %}
-        <div class="app-{{ app.app_label }} module">
-
         {% if app.name %}
         <h3>{% blocktrans with name=app.name %}{{ name }}{% endblocktrans %}</h3>
         {% endif %}
 
         <table class="table table-striped table-bordered">
         {% for model in app.models %}
-            <tr class="model-{{ model.object_name|lower }}">
-                <td scope="row">
-                    <strong>
+            <tr>
+                <td>
+                    {% if model.add_url %}
+                        <a href="{{ model.add_url }}" class="btn btn-small pull-right addlink">{% trans 'Add' %}</a>
+                    {% endif %}
+
+                    <big>
                     {% if model.admin_url %}
                         <a href="{{ model.admin_url }}">{{ model.name }}</a>
                     {% else %}
                         {{ model.name }}
                     {% endif %}
-                    </strong>
-
-                    {% if model.add_url %}
-                        <a href="{{ model.add_url }}" class="btn btn-small pull-right addlink">{% trans 'Add' %}</a>
-                    {% endif %}
+                    </big>
                 </td>
             </tr>
         {% endfor %}
         </table>
-        </div>
     {% endfor %}
+</div>
 {% else %}
     <p>{% trans "You don't have permission to edit anything." %}</p>
 {% endif %}

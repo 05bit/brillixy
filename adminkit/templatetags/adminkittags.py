@@ -1,5 +1,7 @@
 from django.conf import settings
 from django import template
+from django.utils.safestring import mark_safe
+from django.contrib.admin.views.main import PAGE_VAR
 
 register = template.Library()
 
@@ -48,6 +50,16 @@ def branding_logo():
     default = '%sadminkit/logo.png' % settings.STATIC_URL
     return settings.ADMINKIT_BRANDING.get('logo', default)
 
+
+@register.simple_tag
+def page_number(cl, i):
+    if i == '.':
+        return '... '
+    elif i == cl.page_num:
+        return mark_safe('<a class="btn btn-primary this-page">%s</a> ' % (i+1))
+    else:
+        return mark_safe('<a href="%s" class="btn">%s</a> ' % (
+           cl.get_query_string({PAGE_VAR: i}), i+1))
 
 # @register.simple_tag
 # def branding_title():

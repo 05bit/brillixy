@@ -1,0 +1,28 @@
+{% load adminkittags admin_list %}
+{% load i18n %}
+
+<div class="paginator">
+    {% if cl.formset and cl.result_count %}<button type="submit" name="_save" class="btn pull-right">{% trans 'Save' %}</button>{% endif %}
+
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a class="btn btn-primary disabled">
+                {{ cl.result_count }} {% ifequal cl.result_count 1 %}{{ cl.opts.verbose_name }}{% else %}{{ cl.opts.verbose_name_plural }}{% endifequal %}
+            </a>
+        </div>
+
+        {% if pagination_required %}
+            <div class="btn-group">
+                {% for i in page_range %}
+                    {% page_number cl i %}
+                {% endfor %}
+            </div>
+
+            {% if show_all_url %}
+            <div class="btn-group">
+                <a href="{{ show_all_url }}" class="btn showall">{% trans 'Show all' %}</a>
+            </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>

@@ -47,10 +47,10 @@
                                 {% endif %}
 
                                 {% if user.has_usable_password %}
-                                    <a href="{% url 'admin:password_change' %}" class="btn">{% trans 'Change password' %}</a>
+                                    <a href="{% url 'admin:password_change' %}" class="btn btn-small">{% trans 'Change password' %}</a>
                                 {% endif %}
 
-                                <a href="{% url 'admin:logout' %}" class="btn">{% trans 'Log out' %}</a>
+                                <a href="{% url 'admin:logout' %}" class="btn btn-small">{% trans 'Log out' %}</a>
                                 </div>
                             {% endblock %}
                         </div>

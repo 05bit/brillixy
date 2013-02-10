@@ -16,6 +16,7 @@ Release 0.9beta
     - pagination
     - sorting
     - actions confirm
+    - actions_selection_counter issue
 
 3. New object add / edit page
 

@@ -18,5 +18,8 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('slug', 'title', 'published_at', 'is_published')
     list_filter = ('is_published',)
     list_editable = ('is_published',)
+    list_per_page = 20
 
 admin.site.register(Post, PostAdmin)
+
+
