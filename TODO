@@ -1,9 +1,10 @@
 Release 0.9beta
 ===============
 
-0. Core stuff:
+0. Core stuff, bugs & minor issues:
     - {% load url from future %} issue: with Django upgrade
       to 1.5 it will cause error
+    - [minor] actions_selection_counter issue
 
 1. Basic dashboard customization:
     + diff. dashboard for different users (permissions)
@@ -13,10 +14,9 @@ Release 0.9beta
 2. New objects index page
     + basics
     + list editable
-    - pagination
+    + pagination
     - sorting
     - actions confirm
-    - actions_selection_counter issue
 
 3. New object add / edit page
 

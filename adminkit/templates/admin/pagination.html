@@ -2,7 +2,7 @@
 {% load i18n %}
 
 <div class="paginator">
-    {% if cl.formset and cl.result_count %}<button type="submit" name="_save" class="btn pull-right">{% trans 'Save' %}</button>{% endif %}
+    {% if cl.formset and cl.result_count %}<button type="submit" name="_save" class="btn pull-right"><i class="icon-save"></i> {% trans 'Save' %}</button>{% endif %}
 
     <div class="btn-toolbar">
         <div class="btn-group">

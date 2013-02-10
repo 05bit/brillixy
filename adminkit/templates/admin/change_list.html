@@ -58,7 +58,7 @@
                         {% if has_add_permission %}
                         <span>
                             <a href="{% url cl.opts|admin_urlname:'add' %}{% if is_popup %}?_popup=1{% endif %}" class="btn btn-primary addlink">
-                                <i class="icon icon-white icon-plus"></i>
+                                <i class="icon-file"></i>
                                 {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
                             </a>
                         </span>

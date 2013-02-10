@@ -2,7 +2,7 @@
 <span>
     {% for field in action_form %}{{ field.label }} {{ field }}{% endfor %}
     
-    <button type="submit" class="btn" title="{% trans "Run the selected action" %}" name="index" value="{{ action_index|default:0 }}">{% trans "Go" %}</button>
+    <button type="submit" class="btn" title="{% trans "Run the selected action" %}" name="index" value="{{ action_index|default:0 }}"><i class="icon-play"></i></button>
 
     {% comment %}
     {% if actions_selection_counter %}

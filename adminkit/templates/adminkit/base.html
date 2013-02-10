@@ -11,6 +11,7 @@
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
 
+    <link href="{{ STATIC_URL }}adminkit/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ STATIC_URL }}adminkit/css/common.css" rel="stylesheet" type="text/css" />
 
     {% block extrastyle %}{% endblock %}
@@ -65,7 +66,7 @@
             <div class="container">
                 <ul class="breadcrumb">
                     <li>
-                        <a href="{% url 'admin:index' %}" class="btn btn-primary"><i class="icon icon-white icon-list"></i> {% trans 'Home' %}</a>
+                        <a href="{% url 'admin:index' %}" class="btn btn-primary"><i class="icon-list"></i> {% trans 'Home' %}</a>
                     </li>
                     {% if title %}
                     <li><span class="divider">/</span> <strong>{{ title }}</strong></li>
