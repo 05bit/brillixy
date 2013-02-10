@@ -41,7 +41,7 @@
 
                 {% if cl.has_filters %}
                 <div id="changelist-filter" class="well well-condensed">
-                    <h2>{% trans 'Filter' %}</h2>
+                    <h2>{% trans 'Filter' %} {% if cl.params %}<small><a href="?" class="btn">{% trans 'reset' %}</a></small>{% endif %}</h2>
                     {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
                 </div>
                 {% endif %}

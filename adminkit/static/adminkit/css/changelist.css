@@ -1,6 +1,7 @@
 #changelist-filter {}
     #changelist-filter h2 { font-size: 1.25em; line-height: 1.25em; margin-top: 0px; }
     #changelist-filter h3 { font-size: 1.0em; line-height: 1em; margin-top: 0px; }
+    #changelist-filter .nav-header { padding-left: 0px; }
 
 #changelist-search {
     margin-bottom: 15px;
