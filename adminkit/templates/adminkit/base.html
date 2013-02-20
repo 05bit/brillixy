@@ -62,6 +62,7 @@
             <hr>
 
             <!-- Breadcrumbs -->
+            {% if not is_popup %}
             {% block breadcrumbs %}
             <div class="container">
                 <ul class="breadcrumb">
@@ -72,12 +73,15 @@
                     {% block breadcrumbs-middle %}
                     {% endblock %}
 
-                    {% if title %}
-                    <li><span class="divider">/</span> <strong>{{ title }}</strong></li>
-                    {% endif %}
+                    {% block breadcrumbs-title %}
+                        {% if title %}
+                        <li><span class="divider">/</span> <strong>{{ title }}</strong></li>
+                        {% endif %}
+                    {% endblock %}
                 </ul>
             </div>
             {% endblock %}
+            {% endif %}
 
         </div>
         <!-- END Header -->

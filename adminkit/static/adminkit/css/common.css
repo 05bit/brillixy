@@ -21,3 +21,9 @@ body {
         padding: 8px 35px 8px 14px;
 
     }
+
+.help-inline {
+    font-size: smaller;
+    color: #999;
+    padding-left: 0px;
+}

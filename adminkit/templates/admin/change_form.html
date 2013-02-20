@@ -1,0 +1,97 @@
+{% extends "adminkit/base.html" %}
+{% load adminkittags admin_urls admin_list i18n %}
+{% load url from future %}
+
+{% load i18n admin_static admin_modify %}
+{% load admin_urls %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+{{ media }}
+{% endblock %}
+
+{% block breadcrumbs-middle %}
+    <li>
+        <span class="divider">/</span> {% if has_change_permission %}<a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+    </li>
+{% endblock %}
+
+{% block breadcrumbs-title %}
+    <li><span class="divider">/</span> <strong>{{ title }}: {{ original }}</strong></li>
+{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form" class="form-horizontal">
+
+        {% block object-tools %}
+            {% if change %}{% if not is_popup %}
+                <div class="row object-tools">
+                    <div class="span8">
+                        <button href="#" class="btn btn-success" type="submit" name="_save"><i class="icon-ok"></i> {% trans 'Save' %}</button>
+                        <a href="../" class="btn"><i class="icon-ban-circle"></i> {% trans 'Cancel' %}</a>
+                        <button href="#" class="btn" type="submit" name="_continue"><i class="icon-save"></i></button>
+                        <a href="./delete/" class="btn btn-danger"><i class="icon-trash"></i></a>
+
+                        <!--<button href="#" class="btn btn-small" type="submit" name="_addanother"><i class="icon-file"></i> {% trans 'Save and add another' %}</button>-->
+                    </div>
+
+                    <div class="span4">
+                        <div class="pull-right">
+                        {% block object-tools-items %}
+                            <a href="./history/" class="btn historylink">{% trans "History" %} <i class="icon-time"></i></a>
+
+                            {% if has_absolute_url %}
+                                <a href="{{ original.get_absolute_url }}" class="btn viewsitelink" target="_blank">{% trans "View on site" %} <i class="icon-arrow-right"></i></a>
+                            {% endif%}
+                        {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}{% endif %}
+        {% endblock %}
+
+        {% csrf_token %}{% block form_top %}{% endblock %}
+
+        <div>
+        {% if is_popup %}<input type="hidden" name="_popup" value="1" />{% endif %}
+        
+        <!-- Submit row on top -->
+        {% if save_on_top %}{% block submit_buttons_top %}{% submit_row %}{% endblock %}{% endif %}
+
+        <!-- Errors -->
+        {% if errors %}
+            <p class="errornote">
+            {% blocktrans count counter=errors|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
+            </p>
+            {{ adminform.form.non_field_errors }}
+        {% endif %}
+
+        <!-- Fields -->
+        {% block field_sets %}
+        {% for fieldset in adminform %}
+            {% include "admin/includes/fieldset.html" %}
+        {% endfor %}
+        {% endblock %}
+
+        {% block after_field_sets %}{% endblock %}
+
+        <!-- Related objects -->
+        {% block inline_field_sets %}
+        {% for inline_admin_formset in inline_admin_formsets %}
+            {% include inline_admin_formset.opts.template %}
+        {% endfor %}
+        {% endblock %}
+        {% block after_related_objects %}{% endblock %}
+
+        <!-- Extra JS -->
+        {% if adminform.first_field and add %}
+           <script type="text/javascript">document.getElementById("{{ adminform.first_field.id_for_label }}").focus();</script>
+        {% endif %}
+        {% prepopulated_fields_js %}
+        </div>
+    </form>
+</div>
+{% endblock %}
