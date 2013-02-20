@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-{% load adminkittags i18n %}
+{% load admin_static adminkittags i18n %}
 {% load url from future %}
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
@@ -13,6 +13,9 @@
 
     <link href="{{ STATIC_URL }}adminkit/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ STATIC_URL }}adminkit/css/common.css" rel="stylesheet" type="text/css" />
+
+    {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+    <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
 
     {% block extrastyle %}{% endblock %}
     {% block extrahead %}{% endblock %}
@@ -94,7 +97,7 @@
             {% for message in messages %}
             <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
                 <a class="close" data-dismiss="alert">&times;</a>
-                {{ message }}
+                {{ message|capfirst }}
             </div>
             {% endfor %}
         </div>

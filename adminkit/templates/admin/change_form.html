@@ -3,11 +3,16 @@
 {% load url from future %}
 
 {% load i18n admin_static admin_modify %}
-{% load admin_urls %}
+{# load admin_urls #}
 
-{% block extrahead %}{{ block.super }}
-<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
-{{ media }}
+{% block extrastyle %}
+    <link href="{{ STATIC_URL }}adminkit/css/changeform.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+    {{ media }}
 {% endblock %}
 
 {% block breadcrumbs-middle %}
@@ -58,9 +63,6 @@
         <div>
         {% if is_popup %}<input type="hidden" name="_popup" value="1" />{% endif %}
         
-        <!-- Submit row on top -->
-        {% if save_on_top %}{% block submit_buttons_top %}{% submit_row %}{% endblock %}{% endif %}
-
         <!-- Errors -->
         {% if errors %}
             <p class="errornote">

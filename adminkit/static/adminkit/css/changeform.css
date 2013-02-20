@@ -1,0 +1,35 @@
+.datetime input {
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: 1.0em;
+}
+
+.selector-available h2 {
+    font-size: 1.0em;
+    line-height: 1.0em;
+    margin-top: 1.0em;
+    margin-bottom: 1.0em;
+}
+
+.selector {}
+    .selector .selector-available,
+    .selector .selector-chosen {
+        /*width: 40%;*/
+        float: left;
+        /*display: inline-block;*/
+    }
+    .selector .selector-chooser {
+        /*width: 10px;*/
+        /*display: inline-block;*/
+        float: left;
+    }
+    a.selector-chooseall,
+    a.selector-clearall {
+        display: block;
+    }
+    .selector .selector-filter img { display: none; }

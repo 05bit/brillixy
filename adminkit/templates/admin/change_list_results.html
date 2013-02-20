@@ -11,8 +11,8 @@
     <thead>
         <tr>
         {% for header in result_headers %}
-        <th>
-            <span>{% if header.sortable %}<a href="{{ header.url_primary }}">{{ header.text|capfirst }}</a>{% else %}<span>{{ header.text|capfirst }}</span>{% endif %}</span>
+        <th{% if forloop.first %} class="action-checkbox-toggle"{% endif %}>
+            {% if header.sortable %}<a href="{{ header.url_primary }}">{{ header.text|capfirst }}</a>{% else %}{{ header.text|capfirst }}{% endif %}
 
             <!-- Sorting options -->
             {% if header.sortable %}
