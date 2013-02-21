@@ -18,6 +18,9 @@ def setup_templates(site):
     """
     site.index_template = AdminkitSite.index_template
     site.login_template = AdminkitSite.login_template
+    site.logout_template = AdminkitSite.logout_template
+    site.password_change_template = AdminkitSite.password_change_template
+    site.password_change_done_template = AdminkitSite.password_change_done_template
 
 
 def setup_views(site):
@@ -53,6 +56,9 @@ class AdminkitSite(AdminSite):
     """
     index_template = 'adminkit/index.html'
     login_template = 'adminkit/login.html'
+    logout_template = 'adminkit/logout.html'
+    password_change_template = 'adminkit/password_change.html'
+    password_change_done_template = 'adminkit/password_change_done.html'
 
     def get_panels(self, request):
         """Panels for admin dashboard.
