@@ -34,6 +34,19 @@ textarea {
     width: 80%;
 }
 
+/** Time widget
+*/
+.clockbox {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 6px #eee;    
+}
+    .clockbox .timelist {
+        margin-bottom: 0;
+    }
+
 /** Calendar widget
 */
 
