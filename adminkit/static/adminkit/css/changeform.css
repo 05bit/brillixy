@@ -1,16 +1,8 @@
-.datetime input {
-    margin-bottom: 5px;
-}
-
 h2 {
     font-size: 1.2em;
     line-height: 1.2em;
     margin-top: 0;
     margin-bottom: 1.0em;
-}
-
-a.add-another {
-    text-decoration: none;
 }
 
 /** Form commons
@@ -27,11 +19,27 @@ a.add-another {
         margin-bottom: 0;
     }
 
+a.add-another {
+    text-decoration: none;
+}
+
+input[type="file"] {
+    line-height: normal !important;
+    height: auto;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin-top: 0.5em;
+}
+
 /** Inputs
 */
 
 textarea {
     width: 80%;
+}
+
+.datetime input {
+    margin-bottom: 5px;
 }
 
 /** Time widget
