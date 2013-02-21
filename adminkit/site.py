@@ -17,6 +17,7 @@ def setup_templates(site):
     """Setup custom templates for admin site.
     """
     site.index_template = AdminkitSite.index_template
+    site.login_template = AdminkitSite.login_template
 
 
 def setup_views(site):
@@ -51,6 +52,7 @@ class AdminkitSite(AdminSite):
     use it if you need only basic customizations.
     """
     index_template = 'adminkit/index.html'
+    login_template = 'adminkit/login.html'
 
     def get_panels(self, request):
         """Panels for admin dashboard.

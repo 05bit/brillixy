@@ -27,3 +27,7 @@ body {
     color: #999;
     padding-left: 0px;
 }
+
+.alert > :last-child {
+    margin-bottom: 0;
+}

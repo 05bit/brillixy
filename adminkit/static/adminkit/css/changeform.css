@@ -61,7 +61,7 @@ textarea {
 .calendarbox {
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 10px;/* 10px 0 10px;*/
+    padding: 5px 0 10px 0;
     border-radius: 4px;
     box-shadow: 3px 3px 6px #eee;
 }
@@ -106,10 +106,10 @@ textarea {
         text-decoration: none;
     }
     .calendarbox .calendarnav-next {
-        right: 10px;
+        right: 0;/*10px;*/
     }
     .calendarbox .calendarnav-prev {
-        left: 10px;
+        left: 0;/*10px;*/
     }
     .calendar-cancel {
         display: none;
