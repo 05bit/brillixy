@@ -5,8 +5,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 # Enable AdminKit extra customizations
-from adminkit import site
-site.setup(admin.site)
+from adminkit import site as adminkit
+adminkit.setup(admin.site)
 
 urlpatterns = patterns('',
     # Examples:

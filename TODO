@@ -5,6 +5,7 @@ Release 0.9beta
     - {% load url from future %} issue: with Django upgrade
       to 1.5 it will cause error
     - [minor] actions_selection_counter issue
+    - redirect app index to admin main?
 
 1. Basic dashboard customization:
     + diff. dashboard for different users (permissions)
@@ -20,6 +21,10 @@ Release 0.9beta
     - date hierarchy
 
 3. New object add / edit page
+    + basics
+    + date & time widgets
+    + m2m widget
+    - history page
 
 4. Custom css & js
 
