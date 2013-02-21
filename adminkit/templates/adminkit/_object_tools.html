@@ -1,0 +1,29 @@
+{% load i18n %}
+
+{% if not is_popup %}
+<div class="object-tools row">
+    <div class="span7">
+        <button href="#" class="btn btn-success" type="submit" name="_save"><i class="icon-ok"></i> {% trans 'Save' %}</button>
+        <a href="../" class="btn"><i class="icon-ban-circle"></i> {% trans 'Cancel' %}</a>
+        <button href="#" class="btn" type="submit" name="_continue"><i class="icon-save"></i></button>
+
+        <!--<button href="#" class="btn btn-small" type="submit" name="_addanother"><i class="icon-file"></i> {% trans 'Save and add another' %}</button>-->
+    </div>
+
+    {% if change %}
+    <div class="span5">
+        <div class="pull-right">
+        {% block object-tools-items %}
+            <a href="./delete/" class="btn btn-danger"><i class="icon-trash"></i></a>
+
+            <a href="./history/" class="btn historylink">{% trans "History" %} <i class="icon-time"></i></a>
+
+            {% if has_absolute_url %}
+            <a href="{{ original.get_absolute_url }}" class="btn viewsitelink" target="_blank">{% trans "View on site" %} <i class="icon-arrow-right"></i></a>
+            {% endif%}
+        {% endblock %}
+        </div>
+    </div>
+    {% endif%}
+</div>
+{% endif %}

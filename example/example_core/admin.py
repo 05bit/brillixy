@@ -19,5 +19,6 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('is_published',)
     list_editable = ('is_published',)
     list_per_page = 20
+    save_on_top = True
 
 admin.site.register(Post, PostAdmin)

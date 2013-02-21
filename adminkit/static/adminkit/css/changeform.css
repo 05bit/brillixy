@@ -9,25 +9,146 @@ h2 {
     margin-bottom: 1.0em;
 }
 
-.selector-available h2 {
-    font-size: 1.0em;
-    line-height: 1.0em;
-    margin-top: 1.0em;
-    margin-bottom: 1.0em;
+a.add-another {
+    text-decoration: none;
 }
 
-.selector {}
+/** Form commons
+*/
+
+.form-errors {
+    margin-top: 1em;
+}
+
+.form-info {
+    margin-top: 1em;
+}
+    .form-info > :last-child {
+        margin-bottom: 0;
+    }
+
+/** Inputs
+*/
+
+textarea {
+    width: 80%;
+}
+
+/** Calendar widget
+*/
+
+.calendarbox {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;/* 10px 0 10px;*/
+    border-radius: 4px;
+    box-shadow: 3px 3px 6px #eee;
+}
+    .calendarbox table {
+        width: 100%;
+    }
+        .calendarbox table caption {
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+            padding: 5px 0 5px 0;
+        }
+        .calendarbox table td a {
+            display: block;
+            text-align: center;
+            border: 1px solid #eee;
+            text-decoration: none;
+            padding: 4px;
+        }
+        .calendarbox table td a:hover {
+            background-color: #0088cc; /*rgb(243, 243, 243);*/
+            color: #fff;
+            /*border: 1px solid #0088cc;*/
+            text-decoration: none;
+        }
+
+    .calendarbox .calendarnav-previous,
+    .calendarbox .calendarnav-next {
+        display: block;
+        position: absolute;
+        font-size: 1.2em;
+        padding: 4px 0 4px 0;
+        /*line-height: 1.6em;*/
+        width: 40px;
+        text-align: center;
+        /*background-color: rgb(243, 243, 243);*/
+    }
+    .calendarbox .calendarnav-previous:hover,
+    .calendarbox .calendarnav-next:hover {
+        /*border: 1px solid #0088cc;*/
+        background-color: #0088cc; /*rgb(243, 243, 243);*/
+        color: #fff;
+        text-decoration: none;
+    }
+    .calendarbox .calendarnav-next {
+        right: 10px;
+    }
+    .calendarbox .calendarnav-prev {
+        left: 10px;
+    }
+    .calendar-cancel {
+        display: none;
+        /*margin-bottom: 0;*/
+        /*text-align: center;*/
+    }
+    .calendar-shortcuts {
+        text-align: center;
+        font-size: 0.85em;
+    }
+
+/** Selector widget
+*/
+
+.selector {
+    position: relative;
+    vertical-align: top;
+}
+    .selector .selector-chosen h2,
+    .selector .selector-available h2 {
+        font-size: 1.0em;
+        line-height: 1.0em;
+        margin-top: 1.0em;
+        margin-bottom: 1.0em;
+    }
     .selector .selector-available,
     .selector .selector-chosen {
-        /*width: 40%;*/
-        float: left;
-        /*display: inline-block;*/
+        width: 40%;
+        display: inline-block;
+    }
+    .selector select {
+        height: 300px;
+        font-size: 0.85em;
+        width: 100%;
+    }
+    .selector input {
+        width: 80%;
     }
     .selector .selector-chooser {
-        /*width: 10px;*/
-        /*display: inline-block;*/
-        float: left;
+        display: inline-block;
+        margin-left: 15px;
+        margin-right: 15px;
+        vertical-align: top;
+        padding-top: 200px;
     }
+        .selector .selector-chooser a {
+            display: block;
+            width: 32px;
+            height: 32px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            text-indent: -3000px;
+            overflow: hidden;            
+        }
+        .selector .selector-chooser a.selector-add {
+            background-image: url(../icons/icon-forward.png);
+        }
+        .selector .selector-chooser a.selector-remove {
+            background-image: url(../icons/icon-back.png);
+        }
     a.selector-chooseall,
     a.selector-clearall {
         display: block;
