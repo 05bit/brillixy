@@ -12,6 +12,7 @@
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
 
     <link href="{{ STATIC_URL }}adminkit/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 7]><link rel="stylesheet" href="{{ STATIC_URL }}adminkit/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
     <link href="{{ STATIC_URL }}adminkit/css/common.css" rel="stylesheet" type="text/css" />
 
     {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}

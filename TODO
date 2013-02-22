@@ -25,6 +25,7 @@ Release 0.9beta
     + date & time widgets
     + m2m widget
     - history page
+    - inlines
 
 4. Custom css & js
 
