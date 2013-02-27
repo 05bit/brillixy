@@ -1,6 +1,9 @@
 .DS_Store
+.env
 *.pyc
 *.pyo
+*.egg-info/*
+dist/*
 example/example/settings.py
 example/example/media/*
 example/example/static/*

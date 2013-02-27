@@ -1,0 +1,9 @@
+include README.rst
+include LICENSE
+include REQUIREMENTS
+recursive-include brillixy/locale *
+recursive-include brillixy/static *
+recursive-include brillixy/templates *
+recursive-include brillixy/templatetags *
+#global-exclude .DS_Store
+#global-exclude Thumbs.db

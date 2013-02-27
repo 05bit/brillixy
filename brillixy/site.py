@@ -37,14 +37,13 @@ def get_panels(site, request):
     """Default ``get_panels`` method for site -
     returns list of panel objects for dashboard.
     """
-    panels_classes = settings.BRILLIXY_INDEX.get('panels', [])
     panels = []
-    if panels_classes:
-        for panel in panels_classes:
+    if hasattr(settings, 'BRILLIXY_INDEX'):
+        for panel in settings.BRILLIXY_INDEX.get('panels', []):
             panel_mod, panel_cls = panel.rsplit('.', 1)
             module = __import__(panel_mod, fromlist=[panel_cls])
             panels.append(getattr(module, panel_cls)(site, request))
-    else:
+    if not panels:
         panels.append(AllModelsPanel(site, request))
     return panels
 

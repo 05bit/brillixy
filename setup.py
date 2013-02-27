@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Setup file for easy installation"""
 from os.path import join, dirname
-from setuptools import setup
+from setuptools import setup, find_packages
 
 version = '0.5a'
 
@@ -26,7 +26,8 @@ setup(
     license='MIT',
     keywords='django, django-admin, utils, sugar',
     url='https://github.com/05bit/brillixy',
-    packages=['brillixy',],
+    packages=find_packages(),
+    include_package_data=True,
     long_description=long_description(),
     install_requires=['Django>=1.4',],
     classifiers=['Development Status :: 2 - Pre-Alpha',

@@ -47,7 +47,8 @@ def user_nice_name(user):
 @register.simple_tag
 def branding_logo():
     default = '%sbrillixy/logo.png' % settings.STATIC_URL
-    return settings.BRILLIXY_BRANDING.get('logo', default)
+    branding = getattr(settings, 'BRILLIXY_BRANDING', {})
+    return branding.get('logo', default)
 
 
 @register.simple_tag
