@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.views.decorators.cache import never_cache
-from adminkit.panels import AllModelsPanel
+from brillixy.panels import AllModelsPanel
 
 
 @never_cache

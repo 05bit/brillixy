@@ -155,35 +155,35 @@ msgstr[1] ""
 msgid "%(full_result_count)s total"
 msgstr ""
 
-#: templates/adminkit/_model_index.html:7
+#: templates/brillixy/_model_index.html:7
 #, python-format
 msgid "%(name)s"
 msgstr ""
 
-#: templates/adminkit/_model_index.html:15
+#: templates/brillixy/_model_index.html:15
 msgid "Add"
 msgstr ""
 
-#: templates/adminkit/_model_index.html:32
+#: templates/brillixy/_model_index.html:32
 msgid "You don't have permission to edit anything."
 msgstr ""
 
-#: templates/adminkit/base.html:40
+#: templates/brillixy/base.html:40
 msgid "Welcome,"
 msgstr ""
 
-#: templates/adminkit/base.html:47
+#: templates/brillixy/base.html:47
 msgid "Documentation"
 msgstr ""
 
-#: templates/adminkit/base.html:51
+#: templates/brillixy/base.html:51
 msgid "Change password"
 msgstr ""
 
-#: templates/adminkit/base.html:54
+#: templates/brillixy/base.html:54
 msgid "Log out"
 msgstr ""
 
-#: templates/adminkit/base.html:70
+#: templates/brillixy/base.html:70
 msgid "Home"
 msgstr ""

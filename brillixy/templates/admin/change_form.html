@@ -1,19 +1,19 @@
-{% extends "adminkit/base.html" %}
-{% load adminkittags admin_urls admin_list i18n %}
+{% extends "brillixy/base.html" %}
+{% load brillixytags admin_urls admin_list i18n %}
 {% load url from future %}
 
 {% load i18n admin_static admin_modify %}
 {# load admin_urls #}
 
 {% block extrastyle %}
-    <link href="{{ STATIC_URL }}adminkit/css/changeform.css" rel="stylesheet" type="text/css" />
+    <link href="{{ STATIC_URL }}brillixy/css/changeform.css" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block extrahead %}
     {{ block.super }}
     <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
     {{ media }}
-    <script type="text/javascript" src="{{ STATIC_URL }}adminkit/js/changeform.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}brillixy/js/changeform.js"></script>
 {% endblock %}
 
 {% block breadcrumbs-middle %}
@@ -34,7 +34,7 @@
 
         <!-- Buttons on top -->
         {% if save_on_top %}
-        {% include "adminkit/_object_tools.html" %}
+        {% include "brillixy/_object_tools.html" %}
         <hr>
         {% endif %}
 
@@ -58,7 +58,7 @@
             {% block field_sets %}
             {% for fieldset in adminform %}
                 {% if not forloop.first %}<hr>{% endif %}
-                {% include "adminkit/_fieldset.html" %}
+                {% include "brillixy/_fieldset.html" %}
             {% endfor %}
             {% endblock %}
 
@@ -81,7 +81,7 @@
 
         <!-- Buttons -->
         <hr>
-        {% include "adminkit/_object_tools.html" %}
+        {% include "brillixy/_object_tools.html" %}
     </form>
 </div>
 {% endblock %}

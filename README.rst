@@ -1,12 +1,12 @@
 About
 =====
 
-AdminKit is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
+Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
 
 Requirements
 ============
 
-Django 1.4.x is supported and we're working on compatibility with 1.3.x and 1.5.x. Actually it may work, but it's not well tested yet.
+Django 1.4.x/1.5.x is supported and required. Actually it may work with Django 1.3.x, but it's not well tested yet.
 
 Features
 ========
@@ -19,7 +19,7 @@ Some features are not implemented yet::
     * inlines
     * history page (old design)
 
-Actually, this is warning for earliest adopters, as we're planning to implement it in about a week or two. We're starting with minimal set of features to get faster feedback.
+Actually, this is warning for earliest adopters, as we're planning to implement it in about a week or two. We're starting with minimal set of features to get early feedback.
 
 Installation
 ============
@@ -28,14 +28,14 @@ Standard Django admin should be enabled and configured as usually.
 
 1. Install using ``pip``::
 
-    pip install adminkit
+    pip install brillixy
 
-2. Add ``adminkit`` to ``INSTALLED_APPS`` before ``django.contrib.admin``::
+2. Add ``brillixy`` to ``INSTALLED_APPS`` before ``django.contrib.admin``::
 
     INSTALLED_APPS = (
         # ...
         
-        'adminkit',
+        'brillixy',
         
         # Uncomment the next line to enable the admin:
         'django.contrib.admin',
@@ -49,24 +49,24 @@ Standard Django admin should be enabled and configured as usually.
     from django.contrib import admin
     admin.autodiscover()
 
-    # Enable AdminKit extra customizations
-    from adminkit import site as adminkit
-    adminkit.setup(admin.site)
+    # Enable Brillixy extra customizations
+    from brillixy import site as brillixy
+    brillixy.setup(admin.site)
 
 Customization
 =============
 
-Here's basic example of customization code in settings file from ``example`` project provided with the source code of AdminKit::
+Here's basic example of customization code in settings file from ``example`` project provided with the source code of Brillixy::
 
-    # AdminKit settings
-    ADMINKIT_INDEX = {
+    # Brillixy settings
+    BRILLIXY_INDEX = {
         'panels': [
             'example_core.admin.MyModelsPanel',
-            'adminkit.panels.AllModelsPanel',
+            'brillixy.panels.AllModelsPanel',
         ]
     }
 
-    ADMINKIT_BRANDING = {
+    BRILLIXY_BRANDING = {
         'logo': '%slogo.png' % STATIC_URL,
     }
 
@@ -78,4 +78,4 @@ For commercial usage you should purchase commercial license. Pricing model is in
 Feedback
 ========
 
-You're welcome to post issues at GitHub https://github.com/05bit/adminkit/issues or you may drop a line to Alexey Kinyov <rudy@05bit.com>
+You're welcome to post issues at GitHub https://github.com/05bit/brillixy/issues or you may drop a line to Alexey Kinyov <rudy@05bit.com>

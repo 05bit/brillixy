@@ -118,8 +118,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Place AdminKit right before admin
-    'adminkit',
+    # Place Brillixy right before admin
+    'brillixy',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -157,15 +157,15 @@ LOGGING = {
     }
 }
 
-# AdminKit settings
-ADMINKIT_INDEX = {
+# Brillixy settings
+BRILLIXY_INDEX = {
     'panels': [
         'example_core.admin.MyModelsPanel',
-        'adminkit.panels.AllModelsPanel',
+        'brillixy.panels.AllModelsPanel',
     ]
 }
 
-ADMINKIT_BRANDING = {
+BRILLIXY_BRANDING = {
     'logo': '%slogo.png' % STATIC_URL,
-    # 'title': u"AdminKit Example",
+    # 'title': u"Brillixy Example",
 }

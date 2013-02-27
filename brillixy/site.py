@@ -1,8 +1,8 @@
 import types
 from django.conf import settings
 from django.contrib.admin import AdminSite
-from adminkit import views
-from adminkit.panels import AllModelsPanel
+from brillixy import views
+from brillixy.panels import AllModelsPanel
 
 
 def setup(site):
@@ -37,7 +37,7 @@ def get_panels(site, request):
     """Default ``get_panels`` method for site -
     returns list of panel objects for dashboard.
     """
-    panels_classes = settings.ADMINKIT_INDEX.get('panels', [])
+    panels_classes = settings.BRILLIXY_INDEX.get('panels', [])
     panels = []
     if panels_classes:
         for panel in panels_classes:
@@ -50,15 +50,15 @@ def get_panels(site, request):
 
 
 class AdminkitSite(AdminSite):
-    """Base class for AdminKit site. You can use it to setup
+    """Base class for Brillixy site. You can use it to setup
     custom admin interface from scratch. Probably you should not
     use it if you need only basic customizations.
     """
-    index_template = 'adminkit/index.html'
-    login_template = 'adminkit/login.html'
-    logout_template = 'adminkit/logout.html'
-    password_change_template = 'adminkit/password_change.html'
-    password_change_done_template = 'adminkit/password_change_done.html'
+    index_template = 'brillixy/index.html'
+    login_template = 'brillixy/login.html'
+    logout_template = 'brillixy/logout.html'
+    password_change_template = 'brillixy/password_change.html'
+    password_change_done_template = 'brillixy/password_change_done.html'
 
     def get_panels(self, request):
         """Panels for admin dashboard.

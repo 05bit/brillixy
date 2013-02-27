@@ -1,5 +1,5 @@
 from django.contrib import admin
-from adminkit.panels import AllModelsPanel
+from brillixy.panels import AllModelsPanel
 from example_core.models import Post
 
 

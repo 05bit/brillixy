@@ -4,9 +4,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-# Enable AdminKit extra customizations
-from adminkit import site as adminkit
-adminkit.setup(admin.site)
+# Enable Brillixy extra customizations
+from brillixy import site as brillixy
+brillixy.setup(admin.site)
 
 urlpatterns = patterns('',
     # Examples:

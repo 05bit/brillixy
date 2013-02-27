@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-{% load admin_static adminkittags i18n %}
+{% load admin_static brillixytags i18n %}
 {% load url from future %}
     <meta charset="utf-8">
     <title>{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}</title>
@@ -11,9 +11,9 @@
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
     <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
 
-    <link href="{{ STATIC_URL }}adminkit/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!--[if IE 7]><link rel="stylesheet" href="{{ STATIC_URL }}adminkit/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
-    <link href="{{ STATIC_URL }}adminkit/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="{{ STATIC_URL }}brillixy/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 7]><link rel="stylesheet" href="{{ STATIC_URL }}brillixy/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
+    <link href="{{ STATIC_URL }}brillixy/css/common.css" rel="stylesheet" type="text/css" />
 
     {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
     <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>

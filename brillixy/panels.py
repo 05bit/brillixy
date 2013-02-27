@@ -11,15 +11,15 @@ class BasePanel(object):
 
 
 class ModelsListPanel(BasePanel):
-    template = 'adminkit/_model_index.html'
+    template = 'brillixy/_model_index.html'
 
 
 class AllModelsPanel(BasePanel):
-    template = 'adminkit/_model_index.html'
+    template = 'brillixy/_model_index.html'
 
     def app_groups(self):
         pass
 
 
 class ObjectsListPanel(BasePanel):
-    template = 'adminkit/_object_index.html'
+    template = 'brillixy/_object_index.html'

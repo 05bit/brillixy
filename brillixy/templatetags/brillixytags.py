@@ -29,7 +29,6 @@ def regroup_apps(apps, groups):
                     app['models'] = app['models'][:]
                     app['name'] = group_name
                     apps_regroup.append(app)
-
         return apps_regroup
     else:
         return apps
@@ -47,8 +46,8 @@ def user_nice_name(user):
 
 @register.simple_tag
 def branding_logo():
-    default = '%sadminkit/logo.png' % settings.STATIC_URL
-    return settings.ADMINKIT_BRANDING.get('logo', default)
+    default = '%sbrillixy/logo.png' % settings.STATIC_URL
+    return settings.BRILLIXY_BRANDING.get('logo', default)
 
 
 @register.simple_tag
@@ -61,6 +60,7 @@ def page_number(cl, i):
         return mark_safe('<a href="%s" class="btn">%s</a> ' % (
            cl.get_query_string({PAGE_VAR: i}), i+1))
 
+
 # @register.simple_tag
 # def branding_title():
-#     return settings.ADMINKIT_BRANDING.get('title', u"ADMIN")
+#     return settings.BRILLIXY_BRANDING.get('title', u"ADMIN")
