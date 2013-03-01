@@ -28,7 +28,9 @@ Standard Django admin should be enabled and configured as usually.
 
     pip install brillixy
 
-2. Add ``brillixy`` to ``INSTALLED_APPS`` before ``django.contrib.admin``::
+2. Add ``brillixy`` to ``INSTALLED_APPS`` before ``django.contrib.admin``:
+
+.. code:: python
 
     INSTALLED_APPS = (
         # ...
@@ -41,7 +43,9 @@ Standard Django admin should be enabled and configured as usually.
         # ...
     )
 
-3. Add initialization code to ``urls.py`` right after Django admin autodiscover code::
+3. Add initialization code to ``urls.py`` right after Django admin autodiscover code:
+
+.. code:: python
 
     # Uncomment the next two lines to enable the admin:
     from django.contrib import admin
@@ -54,7 +58,9 @@ Standard Django admin should be enabled and configured as usually.
 Customization
 =============
 
-Here's basic example of customization code in settings file from ``example`` project provided with the source code of Brillixy::
+Here's basic example of customization code in settings file from ``example`` project provided with the source code of Brillixy:
+
+.. code:: python
 
     # Brillixy settings
     BRILLIXY_INDEX = {
@@ -71,9 +77,9 @@ Here's basic example of customization code in settings file from ``example`` pro
 License, commercial usage
 =========================
 
-Brillixy by is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License http://creativecommons.org/licenses/by-nc/3.0/
-
 .. image:: http://i.creativecommons.org/l/by-nc/3.0/88x31.png
+
+Brillixy by is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License http://creativecommons.org/licenses/by-nc/3.0/
 
 For commercial usage you should purchase commercial license. Pricing model is in development at the moment to be fair. Currently "pay as you want" pricing model is active. You're welcome to share your considerations with us. Please contact Alexey Kinyov <rudy@05bit.com>.
 
