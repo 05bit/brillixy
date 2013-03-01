@@ -30,7 +30,7 @@ Standard Django admin should be enabled and configured as usually.
 
 2. Add ``brillixy`` to ``INSTALLED_APPS`` before ``django.contrib.admin``:
 
-.. code:: python
+.. sourcecode:: python
 
     INSTALLED_APPS = (
         # ...
@@ -45,7 +45,7 @@ Standard Django admin should be enabled and configured as usually.
 
 3. Add initialization code to ``urls.py`` right after Django admin autodiscover code:
 
-.. code:: python
+.. sourcecode:: python
 
     # Uncomment the next two lines to enable the admin:
     from django.contrib import admin
@@ -60,7 +60,7 @@ Customization
 
 Here's basic example of customization code in settings file from ``example`` project provided with the source code of Brillixy:
 
-.. code:: python
+.. sourcecode:: python
 
     # Brillixy settings
     BRILLIXY_INDEX = {
