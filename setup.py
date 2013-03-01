@@ -3,7 +3,7 @@
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-version = '0.5a'
+version = '0.5.1a'
 
 LONG_DESCRIPTION = """
 Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
@@ -32,7 +32,7 @@ setup(
     install_requires=['Django>=1.4',],
     classifiers=['Development Status :: 2 - Pre-Alpha',
                  'Operating System :: OS Independent',
-                 'License :: OSI Approved :: MIT License',
+                 'License :: Free for non-commercial use',
                  'Intended Audience :: Developers',
                  'Environment :: Web Environment',
                  'Framework :: Django',
