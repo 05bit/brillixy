@@ -20,5 +20,6 @@ class PostAdmin(admin.ModelAdmin):
     list_editable = ('is_published',)
     list_per_page = 20
     save_on_top = True
+    date_hierarchy = 'published_at'
 
 admin.site.register(Post, PostAdmin)

@@ -3,7 +3,7 @@ Release 0.9beta
 
 0. Core stuff, bugs & minor issues:
     - {% load url from future %} issue: with Django upgrade
-      to 1.5 it will cause error
+      to 1.5 it will cause error (?)
     - [minor] actions_selection_counter issue
     - redirect app index to admin main?
 
@@ -18,13 +18,13 @@ Release 0.9beta
     + pagination
     + sorting
     + actions confirm
-    - date hierarchy
+    + date hierarchy
 
 3. New object add / edit page
     + basics
     + date & time widgets
     + m2m widget
-    - history page
+    + history page
     - inlines
 
 4. Custom css & js

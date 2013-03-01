@@ -1,0 +1,15 @@
+{% if show %}
+<ul id="date-hierarchy" class="well nav nav-pills">
+    {% if back %}
+    <li class="date-back">
+        <a href="{{ back.link }}">&laquo; {{ back.title }}</a>
+    </li>
+    {% endif %}
+
+    {% for choice in choices %}
+    <li {% if not choice.link %}class="active"{% endif %}>
+        <a {% if choice.link %}href="{{ choice.link }}"{% endif %}>{{ choice.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

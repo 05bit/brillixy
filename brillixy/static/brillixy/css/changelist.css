@@ -30,3 +30,8 @@
     .sortoptions a {
         text-decoration: none;
     }
+
+#date-hierarchy {
+    padding: 5px;
+    background-color: #fafafa;
+}

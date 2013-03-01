@@ -38,7 +38,6 @@
                 <div id="changelist-search" class="well well-condensed">
                     <h2>{% trans 'Search' %}</h2>
                     {% block search %}{% search_form cl %}{% endblock %}
-                    {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
                 </div>
                 {% endif %}
 
@@ -79,13 +78,18 @@
                     {% endblock %}
                 </div>
 
-            <!-- Objects -->
-            {% result_list cl %}
+                <!-- Date hierarchy -->
+                {% if cl.date_hierarchy %}
+                {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
+                {% endif %}
 
-            <!-- Pagination -->
-            {% block pagination %}{% pagination cl %}{% endblock %}
-        </form>
+                <!-- Objects -->
+                {% result_list cl %}
 
+                <!-- Pagination -->
+                {% block pagination %}{% pagination cl %}{% endblock %}
+
+            </form>
         </div>
         {% endblock %}
     </div>
