@@ -13,11 +13,9 @@ Features
 
 After installation you'll get almost fully featured Django admin with refined design powered by Twitter Bootstrap.
 
-Some features are not implemented yet::
+Basic features that are not implemented yet::
 
-    * date hierarhy filtering
     * inlines
-    * history page (old design)
 
 Actually, this is warning for earliest adopters, as we're planning to implement it in about a week or two. We're starting with minimal set of features to get early feedback.
 
