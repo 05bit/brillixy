@@ -1,0 +1,43 @@
+{% extends "brillixy/base.html" %}
+{% load i18n %}
+{% load admin_urls %}
+
+{% block extrastyle %}
+    <link href="{{ STATIC_URL }}brillixy/css/history.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block breadcrumbs-middle %}
+    <li>
+        <span class="divider">/</span> <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+    </li>
+    <li>
+        <span class="divider">/</span> <a href="{% url opts|admin_urlname:'change' object.pk %}">{{ object|truncatewords:"18" }}</a>
+    </li>
+{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block content %}
+{% if action_list %}
+<table id="change-history" class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>{% trans 'Date/time' %}</th>
+        <th>{% trans 'User' %}</th>
+        <th>{% trans 'Action' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for action in action_list %}
+    <tr>
+        <th scope="row">{{ action.action_time|date:"DATETIME_FORMAT" }}</th>
+        <td>{{ action.user.get_username }}{% if action.user.get_full_name %} ({{ action.user.get_full_name }}){% endif %}</td>
+        <td>{{ action.change_message }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>{% trans "This object doesn't have a change history. It probably wasn't added via this admin site." %}</p>
+{% endif %}
+{% endblock %}

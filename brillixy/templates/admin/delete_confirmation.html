@@ -1,7 +1,11 @@
 {% extends "brillixy/base.html" %}
+{% load admin_urls %}
 {% load i18n %}
 
 {% block breadcrumbs-middle %}
+    <li>
+        <span class="divider">/</span> <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+    </li>
     <li>
         <span class="divider">/</span>
         {% trans "Delete" %}:
