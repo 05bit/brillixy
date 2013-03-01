@@ -23,7 +23,7 @@ setup(
     author='Alexey Kinyov',
     author_email='rudy@05bit.com',
     description='Customizations for Django admin interface.',
-    license='MIT',
+    license='Creative Commons Attribution-NonCommercial 3.0 Unported License',
     keywords='django, django-admin, utils, sugar',
     url='https://github.com/05bit/brillixy',
     packages=find_packages(),
