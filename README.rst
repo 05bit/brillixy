@@ -1,3 +1,8 @@
+Disclaimer
+==========
+
+Yet, Brillixy may work fine with simple projects, it's in active development at the moment to be more robust and fit more complex ones.
+
 About
 =====
 
