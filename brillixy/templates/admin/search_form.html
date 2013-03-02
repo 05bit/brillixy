@@ -5,9 +5,13 @@
         <p>{% blocktrans count counter=cl.result_count %}{{ counter }} result{% plural %}{{ counter }} results{% endblocktrans %} (<a href="?{% if cl.is_popup %}pop=1{% endif %}">{% blocktrans with full_result_count=cl.full_result_count %}{{ full_result_count }} total{% endblocktrans %}</a>)</p>
     {% endif %}
 
-    <div class="input-append">
-        <input id="searchbar" type="text" name="{{ search_var }}" value="{{ cl.query }}" {#class="span2"#}>
-        <button type="submit" class="btn"><i class="icon-search"></i></button>
+    <div class="form-search">
+        <div id="searchbar">
+            <input class="search-query" type="text" name="{{ search_var }}" value="{{ cl.query }}">
+        </div>
+        <p id="search-submit">
+            <button type="submit" class="btn"><i class="icon-search"></i> {% trans 'Search' %}</button>
+        </p>
         
         {% for pair in cl.params.items %}
             {% ifnotequal pair.0 search_var %}<input type="hidden" name="{{ pair.0 }}" value="{{ pair.1 }}"/>{% endifnotequal %}

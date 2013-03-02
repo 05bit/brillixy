@@ -1,7 +1,9 @@
-from django.conf import settings
 from django import template
-from django.utils.safestring import mark_safe
+from django.conf import settings
 from django.contrib.admin.views.main import PAGE_VAR
+from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext_lazy as _
+
 
 register = template.Library()
 
@@ -46,9 +48,20 @@ def user_nice_name(user):
 
 @register.simple_tag
 def branding_logo():
-    default = '%sbrillixy/logo.png' % settings.STATIC_URL
-    branding = getattr(settings, 'BRILLIXY_BRANDING', {})
-    return branding.get('logo', default)
+    # default = '%sbrillixy/logo.png' % settings.STATIC_URL
+    if hasattr(settings, 'BRILLIXY_BRANDING'):
+        src = settings.BRILLIXY_BRANDING.get('logo', None)
+    else:
+        src = None
+    return src and mark_safe('<img src="%s">' % src) or u''
+
+
+@register.simple_tag
+def branding_title():
+    default = _('Django administration')
+    if hasattr(settings, 'BRILLIXY_BRANDING'):
+        return mark_safe(settings.BRILLIXY_BRANDING.get('title', default))
+    return default
 
 
 @register.simple_tag
@@ -60,8 +73,3 @@ def page_number(cl, i):
     else:
         return mark_safe('<a href="%s" class="btn">%s</a> ' % (
            cl.get_query_string({PAGE_VAR: i}), i+1))
-
-
-# @register.simple_tag
-# def branding_title():
-#     return settings.BRILLIXY_BRANDING.get('title', u"ADMIN")

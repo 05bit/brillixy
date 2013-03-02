@@ -10,7 +10,15 @@
     #changelist-search form { margin-bottom: 0px; }
         #changelist-search .input-append { margin-bottom: 0px; }
 
-    #searchbar { width: 145px; }
+    #searchbar { width: 100%; }
+        #searchbar .search-query { width: 85%; }
+    #search-submit {
+        text-align: center;
+        margin-top: 0.5em; margin-bottom: 0;
+    }
+        #search-submit button {
+            width: 100%;
+        }
 
 #changelist-actions {
     margin-bottom: 15px;

@@ -161,11 +161,11 @@ LOGGING = {
 BRILLIXY_INDEX = {
     'panels': [
         'example_core.admin.MyModelsPanel',
-        'brillixy.panels.AllModelsPanel',
+        # 'brillixy.panels.AllModelsPanel',
     ]
 }
 
 BRILLIXY_BRANDING = {
     'logo': '%slogo.png' % STATIC_URL,
-    # 'title': u"Brillixy Example",
+    'title': u"Brillixy Demo",
 }

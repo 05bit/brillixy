@@ -29,14 +29,16 @@
         <div id="header">
             <div class="container">
                 <div class="row">
-                    <div id="branding" class="span3" style="position: relative">
+                    <div id="branding" class="span8" style="position: relative">
                         {% block branding %}
-                            <a href="{% url 'admin:index' %}"><img src="{% branding_logo %}"></a>
-                            {#<a href="#"><span class="badge" style="position: absolute; left: 50%; top: 80%">{% branding_title %}</span></a>#}
+                            <span class="logo">
+                                <a href="{% url 'admin:index' %}">{% branding_logo %}</a>
+                            </span>
+
+                            <h1 class="title">
+                                <a href="{% url 'admin:index' %}">{% branding_title %}</a>
+                            </h1>
                         {% endblock %}
-                    </div>
-                    <div class="span5">
-                        {% block nav-global %}{% endblock %}
                     </div>
                     <div class="span4">
                         {% if user.is_active and user.is_staff %}

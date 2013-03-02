@@ -35,3 +35,18 @@ body {
 .alert > :last-child {
     margin-bottom: 0;
 }
+
+#branding .logo,
+#branding .title {
+    display: inline-block;
+}
+    #branding .logo img {
+        margin-right: 2em;
+    }
+    #branding .title {
+        font-size: 1.5em;
+        line-height: 1.8em;
+    }
+        #branding .title a {
+            text-decoration: none !important;
+        }

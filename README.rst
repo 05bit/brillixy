@@ -11,13 +11,12 @@ Django 1.4.x/1.5.x is supported and required. Actually it may work with Django 1
 Features
 ========
 
-After installation you'll get almost fully featured Django admin with refined design powered by Twitter Bootstrap.
+After installation you'll get almost fully featured Django admin with refined design powered by responsive Twitter Bootstrap layout.
 
-Basic features that are not implemented yet::
+All basic admin features are implemented at the moment. Also you will get some extras::
 
-    * inlines
-
-Actually, this is warning for earliest adopters, as we're planning to implement it in about a week or two. We're starting with minimal set of features to get early feedback.
+    * global header logo & text customization
+    * customizable dashboard
 
 Installation
 ============

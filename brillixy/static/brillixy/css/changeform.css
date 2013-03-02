@@ -8,6 +8,13 @@ h2 {
     margin-bottom: 1.0em;
 }
 
+h3 {
+    font-size: 1.0em;
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: 1.0em;
+}
+
 /** Form
 */
 
@@ -195,3 +202,13 @@ textarea {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+.inline-stacked .delete {
+    float: right;
+}
+    .inline-stacked .delete label {
+        display: inline;
+    }
+.inline-stacked .inline-deletelink {
+    float: right;
+}
