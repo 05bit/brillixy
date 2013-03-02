@@ -15,3 +15,11 @@ class Post(models.Model):
 
     class Meta:
         ordering = ('-published_at',)
+
+
+class PostFile(models.Model):
+    post = models.ForeignKey(Post)
+    attachment = models.FileField(upload_to='attachments')
+
+    def __unicode__(self):
+        return self.attachment

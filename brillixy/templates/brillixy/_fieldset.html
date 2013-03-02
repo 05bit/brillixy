@@ -1,4 +1,4 @@
-<fieldset class="{{ fieldset.classes }}">
+<fieldset {% if fieldset.classes %}class="{{ fieldset.classes }}"{% endif %}>
     {% if fieldset.name %}
         <h2>{{ fieldset.name }}</h2>
     {% endif %}
@@ -13,36 +13,35 @@
         {% for field in line %}
         <div class="control-group {% if field.field.name %} field-{{ field.field.name }}{% endif %}{% if not field.is_readonly and field.errors %} error{% endif %}">
 
-                {% if not field.is_checkbox %}
-                    <label class="control-label">
-                        {% if field.field.field.required %}
-                            <strong>{{ field.field.label }}: *</strong>
-                        {% else %}
-                            {{ field.field.label }}:
-                        {% endif %}
+            {% if not field.is_checkbox %}
+                <label class="control-label">
+                    {% if field.field.field.required %}
+                        <strong>{{ field.field.label }}: *</strong>
+                    {% else %}
+                        {{ field.field.label }}:
+                    {% endif %}
+                </label>
+            {% endif %}
+
+            {% if not line.fields|length_is:'1' and not field.is_readonly %}{{ field.errors }}{% endif %}
+
+            <div class="controls{% if line.fields|length_is:'1' and line.errors %} errors{% endif %}{% for field in line %}{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% endfor %}">
+                {% if field.is_checkbox %}
+                    <label class="checkbox">
+                        {{ field.field }} {{ field.field.label }}
                     </label>
+                {% else %}
+                    {% if field.is_readonly %}
+                        <p>{{ field.contents|linebreaksbr }}</p>
+                    {% else %}
+                        {{ field.field }}
+                    {% endif %}
                 {% endif %}
 
-                {% if not line.fields|length_is:'1' and not field.is_readonly %}{{ field.errors }}{% endif %}
-
-                <div class="controls{% if line.fields|length_is:'1' and line.errors %} errors{% endif %}{% for field in line %}{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% endfor %}">
-
-                    {% if field.is_checkbox %}
-                        <label class="checkbox">
-                            {{ field.field }} {{ field.field.label }}
-                        </label>
-                    {% else %}
-                        {% if field.is_readonly %}
-                            <p>{{ field.contents|linebreaksbr }}</p>
-                        {% else %}
-                            {{ field.field }}
-                        {% endif %}
-                    {% endif %}
-
-                    {% if field.field.help_text %}
-                        <span class="help-inline">{{ field.field.help_text|safe }}</span>
-                    {% endif %}
-                </div>
+                {% if field.field.help_text %}
+                    <span class="help-inline">{{ field.field.help_text|safe }}</span>
+                {% endif %}
+            </div>
         </div>
         {% endfor %}
     {% endfor %}

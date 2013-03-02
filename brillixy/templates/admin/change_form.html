@@ -67,6 +67,7 @@
             <!-- Related objects -->
             {% block inline_field_sets %}
             {% for inline_admin_formset in inline_admin_formsets %}
+                <hr>
                 {% include inline_admin_formset.opts.template %}
             {% endfor %}
             {% endblock %}

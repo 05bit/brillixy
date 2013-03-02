@@ -1,6 +1,6 @@
 from django.contrib import admin
 from brillixy.panels import AllModelsPanel
-from example_core.models import Post
+from example_core.models import Post, PostFile
 
 
 class MyModelsPanel(AllModelsPanel):
@@ -14,6 +14,14 @@ class MyModelsPanel(AllModelsPanel):
         )
 
 
+class PostFileInline(admin.TabularInline):
+    model = PostFile
+    extra = 1
+
+    def title(self):
+        return self.instance
+
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ('slug', 'title', 'published_at', 'is_published')
     list_filter = ('is_published',)
@@ -21,5 +29,6 @@ class PostAdmin(admin.ModelAdmin):
     list_per_page = 20
     save_on_top = True
     date_hierarchy = 'published_at'
+    inlines = [PostFileInline]
 
 admin.site.register(Post, PostAdmin)

@@ -1,3 +1,6 @@
+/** Common typo
+*/
+
 h2 {
     font-size: 1.2em;
     line-height: 1.2em;
@@ -5,7 +8,7 @@ h2 {
     margin-bottom: 1.0em;
 }
 
-/** Form commons
+/** Form
 */
 
 .form-errors {
@@ -175,3 +178,20 @@ textarea {
         display: block;
     }
     .selector .selector-filter img { display: none; }
+
+
+/** Inlines
+*/
+.inline-group .empty-form {
+    display: none;
+}
+.inline-group .form-row .original {
+    max-width: 10%;
+}
+    .inline-group .form-row .original p {
+        font-size: smaller;
+        max-width: 160px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
