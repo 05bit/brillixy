@@ -3,15 +3,14 @@
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-version = '0.5.1a'
+version = '0.6a'
 
 LONG_DESCRIPTION = """
 Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
 """
 
 def long_description():
-    """Return long description from README.md if it's present
-    because it doesn't get installed."""
+    """Return long description from README.rst if it's present."""
     try:
         return open(join(dirname(__file__), 'README.rst')).read()
     except IOError:
