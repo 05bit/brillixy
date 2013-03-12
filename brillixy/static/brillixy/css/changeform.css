@@ -41,6 +41,19 @@ input[type="file"] {
     margin-top: 0.5em;
 }
 
+.form-body {
+    margin-top: 30px;
+}
+    .form-body > fieldset .control-group {
+        border-top: 1px solid #eee;
+        margin-bottom: 0px !important;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .form-body > fieldset .control-group:nth-child(2n+1) {
+        background-color: #f9f9f9;
+    }
+
 /** Inputs
 */
 
@@ -212,3 +225,11 @@ textarea {
 .inline-stacked .inline-deletelink {
     float: right;
 }
+
+.inline-stacked .inline-related {
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+    .inline-stacked .inline-related:nth-child(2n+1) {
+        background-color: #f9f9f9;
+    }

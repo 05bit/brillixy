@@ -1,4 +1,6 @@
 {% load i18n admin_static admin_modify %}
+{% load url from future %}
+
 <div class="inline-group" id="{{ inline_admin_formset.formset.prefix }}-group">
     <div class="tabular inline-related {% if forloop.last %}last-related{% endif %}">
 
@@ -8,7 +10,7 @@
             <h2>{{ inline_admin_formset.opts.verbose_name_plural|capfirst }}</h2>
             {{ inline_admin_formset.formset.non_form_errors }}
 
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                     {% for field in inline_admin_formset.fields %}
@@ -40,8 +42,17 @@
                             <td class="original">
                                 {% if inline_admin_form.original or inline_admin_form.show_url %}
                                 <p title="{{ inline_admin_form.original }}">
-                                    {% if inline_admin_form.original %} {{ inline_admin_form.original }}{% endif %}
-                                    {% if inline_admin_form.show_url %}<a href="{{ inline_admin_form.original.get_absolute_url }}">{% trans "View on site" %}</a>{% endif %}
+                                    {% if inline_admin_form.show_url %}<a href="{% url 'admin:view_on_site' inline_admin_form.original_content_type_id inline_admin_form.original.pk %}">
+                                        {% if inline_admin_form.original %}
+                                        {{ inline_admin_form.original }}
+                                        {% else %}
+                                        {% trans "View on site" %}
+                                        {% endif %}</a>
+                                    {% else %}
+                                        {% if inline_admin_form.original %}
+                                        {{ inline_admin_form.original }}
+                                        {% endif %}
+                                    {% endif %}
                                 </p>
                                 {% endif %}
 

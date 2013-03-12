@@ -1,4 +1,6 @@
 {% load i18n admin_static %}
+{% load url from future %}
+
 <div class="inline-group inline-stacked" id="{{ inline_admin_formset.formset.prefix }}-group">
     <h2>{{ inline_admin_formset.opts.verbose_name_plural|title }}</h2>
 
@@ -9,21 +11,25 @@
     <div class="inline-related{% if forloop.last %} empty-form last-related{% endif %}" id="{{ inline_admin_formset.formset.prefix }}-{% if not forloop.last %}{{ forloop.counter0 }}{% else %}empty{% endif %}">
         {% if inline_admin_form.original %}
         <h3><span class="inline_label">{% if inline_admin_form.original %}{{ inline_admin_form.original }}{% else %}#{{ forloop.counter }}{% endif %}</span>
-        {% if inline_admin_form.show_url %}<a href="{{ inline_admin_form.original.get_absolute_url }}">{% trans "View on site" %}</a>{% endif %}
+
+        {% if inline_admin_form.show_url %}<a href="{% url 'admin:view_on_site' inline_admin_form.original_content_type_id inline_admin_form.original.pk %}" target="_blank">{% trans "View on site" %}</a>{% endif %}
+
         {% if inline_admin_formset.formset.can_delete and inline_admin_form.original %}<span class="delete">{{ inline_admin_form.deletion_field.field }} {{ inline_admin_form.deletion_field.label_tag }}</span>{% endif %}
         </h3>
         {% endif %}
 
-        {% if inline_admin_form.form.non_field_errors %}{{ inline_admin_form.form.non_field_errors }}{% endif %}
+        {% if inline_admin_form.form.non_field_errors %}
+        {{ inline_admin_form.form.non_field_errors }}
+        {% endif %}
 
         {% for fieldset in inline_admin_form %}
             {% include "brillixy/_fieldset.html" %}
         {% endfor %}
 
-        {% if inline_admin_form.has_auto_field %}{{ inline_admin_form.pk_field.field }}{% endif %}
+        {% if inline_admin_form.has_auto_field %}
+        {{ inline_admin_form.pk_field.field }}
+        {% endif %}
         {{ inline_admin_form.fk_field.field }}
-
-        <hr>
     </div>
     {% endfor %}
 </div>

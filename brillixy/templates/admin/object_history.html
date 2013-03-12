@@ -1,6 +1,6 @@
 {% extends "brillixy/base.html" %}
-{% load i18n %}
-{% load admin_urls %}
+{% load admin_urls i18n %}
+{% load url from future %}
 
 {% block extrastyle %}
     <link href="{{ STATIC_URL }}brillixy/css/history.css" rel="stylesheet" type="text/css" />
@@ -28,10 +28,10 @@
     </tr>
     </thead>
     <tbody>
-    {% for action in action_list %}
+    {% for action in action_list.reverse %}
     <tr>
         <th>{{ action.action_time|date:"DATETIME_FORMAT" }}</th>
-        <td>{{ action.user.get_username }}{% if action.user.get_full_name %} ({{ action.user.get_full_name }}){% endif %}</td>
+        <td>{{ action.user.get_username|default:action.user }}{% if action.user.get_full_name %} ({{ action.user.get_full_name }}){% endif %}</td>
         <td>{{ action.change_message }}</td>
     </tr>
     {% endfor %}

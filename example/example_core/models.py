@@ -10,16 +10,24 @@ class Post(models.Model):
     published_at = models.DateTimeField(default=datetime.now)
     is_published = models.BooleanField(default=True)
 
+    class Meta:
+        ordering = ('-published_at',)
+
     def __unicode__(self):
         return self.title
 
-    class Meta:
-        ordering = ('-published_at',)
+    def get_absolute_url(self):
+        return '/admin/example_core/post/%s/' % self.pk
 
 
 class PostFile(models.Model):
     post = models.ForeignKey(Post)
-    attachment = models.FileField(upload_to='attachments')
+    attachment = models.FileField(
+        upload_to='attachments', help_text="Upload file size limit 2MB")
 
     def __unicode__(self):
-        return self.attachment
+        return unicode(self.attachment)
+
+    def get_absolute_url(self):
+        return self.attachment.url
+

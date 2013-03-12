@@ -35,7 +35,6 @@
         <!-- Buttons on top -->
         {% if save_on_top %}
         {% include "brillixy/_object_tools.html" %}
-        <hr>
         {% endif %}
 
         <div class="form-body">
@@ -57,7 +56,6 @@
             <!-- Fields -->
             {% block field_sets %}
             {% for fieldset in adminform %}
-                {% if not forloop.first %}<hr>{% endif %}
                 {% include "brillixy/_fieldset.html" %}
             {% endfor %}
             {% endblock %}
@@ -67,7 +65,6 @@
             <!-- Related objects -->
             {% block inline_field_sets %}
             {% for inline_admin_formset in inline_admin_formsets %}
-                <hr>
                 {% include inline_admin_formset.opts.template %}
             {% endfor %}
             {% endblock %}

@@ -1,16 +1,21 @@
 {% load i18n %}
+{% load url from future %}
 
-{% if not is_popup %}
 <div class="object-tools row">
     <div class="span7">
-        <button href="#" class="btn btn-success" type="submit" name="_save"><i class="icon-ok"></i> {% trans 'Save' %}</button>
-        <a href="../" class="btn"><i class="icon-ban-circle"></i> {% trans 'Cancel' %}</a>
-        <button href="#" class="btn" type="submit" name="_continue"><i class="icon-save"></i></button>
+        <button class="btn btn-large btn-success" type="submit" name="_save"><i class="icon-ok"></i> {% trans 'Save' %}</button>
 
-        <!--<button href="#" class="btn btn-small" type="submit" name="_addanother"><i class="icon-file"></i> {% trans 'Save and add another' %}</button>-->
+        {% if is_popup %}
+        <a href="#" class="btn" onclick="window.close();"><i class="icon-ban-circle"></i> {% trans 'Cancel' %}</a>
+        {% else %}
+        <a href="../" class="btn"><i class="icon-ban-circle"></i> {% trans 'Cancel' %}</a>
+        {% endif%}
+        <button class="btn" type="submit" name="_continue"><i class="icon-save"></i></button>
+
+        {#<button class="btn btn-small" type="submit" name="_addanother"><i class="icon-file"></i> {% trans 'Save and add another' %}</button>#}
     </div>
 
-    {% if change %}
+    {% if change and not is_popup %}
     <div class="span5">
         <div class="pull-right">
         {% block object-tools-items %}
@@ -19,11 +24,10 @@
             <a href="./history/" class="btn historylink">{% trans "History" %} <i class="icon-time"></i></a>
 
             {% if has_absolute_url %}
-            <a href="{{ original.get_absolute_url }}" class="btn viewsitelink" target="_blank">{% trans "View on site" %} <i class="icon-arrow-right"></i></a>
+            <a href="{% url 'admin:view_on_site' content_type_id original.pk %}" class="btn viewsitelink" target="_blank">{% trans "View on site" %} <i class="icon-arrow-right"></i></a>
             {% endif%}
         {% endblock %}
         </div>
     </div>
     {% endif%}
 </div>
-{% endif %}

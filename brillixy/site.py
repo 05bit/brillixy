@@ -28,9 +28,32 @@ def setup_views(site):
     """
     if hasattr(site, 'index_base'):
         raise Exception("Site %s was already setup!" % str(site))
+    # save base methods
     site.index_base = site.index
-    site.index = types.MethodType(views.index, site)
+    site.get_urls_base = site.get_urls
+    # add/replace with custom ones
+    site.index = types.MethodType(views.index, site)    
+    site.get_urls = types.MethodType(get_urls, site)
     site.get_panels = types.MethodType(get_panels, site)
+
+
+def get_urls(site, urls_base=None):
+    """As Django 1.5 provides some extra urls, its templates
+    don't work great with Django 1.4. We're eliminating such
+    minor difference.
+
+    Extra urls added if necessary:
+
+        - admin:view_on_site
+    """
+    from django.conf.urls import patterns, url, include
+    urlpatterns = urls_base or site.get_urls_base()
+    urlnames = [getattr(u, 'name', None) for u in urlpatterns]
+    if not 'view_on_site' in urlnames:
+        urlpatterns += url(r'^r/(?P<content_type_id>\d+)/(?P<object_id>.+)/$',
+                           views.view_on_site,
+                           name='view_on_site'),
+    return urlpatterns
 
 
 def get_panels(site, request):
@@ -63,3 +86,9 @@ class AdminkitSite(AdminSite):
         """Panels for admin dashboard.
         """
         return get_panels(self, request)
+
+
+    def get_urls(self):
+        """Admin URLs.
+        """
+        return get_urls(self, super(AdminkitSite, self).get_urls())
