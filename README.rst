@@ -81,8 +81,8 @@ If you see old or broken admin interface that may be custom admin templates that
 
 Please make sure:
 
- * you don't have 'admin/*' templates dir in your ``TEMPLATE_DIRS``
- * you don't have apps before ``brillixy`` in ``INSTALLED_APPS`` that overrides 'admin/*' templates
+ * you don't have 'admin/\*' templates in paths defined in ``TEMPLATE_DIRS``
+ * you don't have apps before ``brillixy`` in ``INSTALLED_APPS`` that overrides 'admin/\*' templates
  * you don't have ModelAdmin or inlines that use custom templates based on default admin templates
 
 License, commercial usage
