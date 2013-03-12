@@ -1,10 +1,7 @@
 Overview
 ========
 
-Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
-
-Brillixy official home page:
-http://05bit.com/brillixy/
+Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities. Official home page: http://05bit.com/brillixy/.
 
 Requirements
 ============
@@ -14,9 +11,7 @@ Django 1.4.x/1.5.x is supported. Django 1.3.x support is not available at the mo
 Features
 ========
 
-Yet, Brillixy may work fine with simple projects, it's in active development at the moment to be more robust and fit more complex ones.
-
-After installation you'll get fully featured Django admin with refined design powered by responsive Twitter Bootstrap layout.
+After installation you'll get fully featured Django admin with refined design powered by responsive Twitter Bootstrap layout. And yet, Brillixy may work fine with simple projects, it's in active development at the moment to be more robust and fit more complex ones.
 
 All basic admin features are implemented at the moment. Also you will get some extras::
 
@@ -86,9 +81,9 @@ If you see old or broken admin interface that may be custom admin templates that
 
 Please make sure:
 
-    * you don't have 'admin/*' templates dir in your ``TEMPLATE_DIRS``
-    * you don't have apps before ``brillixy`` in ``INSTALLED_APPS`` that overrides 'admin/*' templates
-    * you don't have ModelAdmin or inlines that use custom templates based on default admin templates
+ * you don't have 'admin/*' templates dir in your ``TEMPLATE_DIRS``
+ * you don't have apps before ``brillixy`` in ``INSTALLED_APPS`` that overrides 'admin/*' templates
+ * you don't have ModelAdmin or inlines that use custom templates based on default admin templates
 
 License, commercial usage
 =========================
