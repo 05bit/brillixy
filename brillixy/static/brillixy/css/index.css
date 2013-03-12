@@ -1,4 +1,8 @@
 .panel {}
+    .panel .model-index h3 {
+        font-size: 1.0em;
+        line-height: 1.0em;
+    }
     .panel .model-index big {
         font-size: 1.40em;
         line-height: 1.40em;
