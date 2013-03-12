@@ -13,10 +13,10 @@ Features
 
 After installation you'll get fully featured Django admin with refined design powered by responsive Twitter Bootstrap layout. And yet, Brillixy may work fine with simple projects, it's in active development at the moment to be more robust and fit more complex ones.
 
-All basic admin features are implemented at the moment. Also you will get some extras::
+All basic admin features are implemented at the moment. Also you will get some extras:
 
-    * global header logo & text customization
-    * custom dashboard panels API
+* global header logo & text customization
+* custom dashboard panels API
 
 Installation
 ============
@@ -81,9 +81,9 @@ If you see old or broken admin interface that may be custom admin templates that
 
 Please make sure:
 
- * you don't have 'admin/\*' templates in paths defined in ``TEMPLATE_DIRS``
- * you don't have apps before ``brillixy`` in ``INSTALLED_APPS`` that overrides 'admin/\*' templates
- * you don't have ModelAdmin or inlines that use custom templates based on default admin templates
+* you don't have 'admin/\*' templates in paths defined in ``TEMPLATE_DIRS``
+* you don't have apps before ``brillixy`` in ``INSTALLED_APPS`` that overrides 'admin/\*' templates
+* you don't have ModelAdmin or inlines that use custom templates based on default admin templates
 
 License, commercial usage
 =========================
