@@ -3,7 +3,7 @@
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-version = '0.6a'
+version = '0.6'
 
 LONG_DESCRIPTION = """
 Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
@@ -24,12 +24,12 @@ setup(
     description='Customizations for Django admin interface.',
     license='Creative Commons Attribution-NonCommercial 3.0 Unported License',
     keywords='django, django-admin, utils, sugar',
-    url='https://github.com/05bit/brillixy',
+    url='http://05bit.com/brillixy/',
     packages=find_packages(),
     include_package_data=True,
     long_description=long_description(),
     install_requires=['Django>=1.4',],
-    classifiers=['Development Status :: 2 - Pre-Alpha',
+    classifiers=['Development Status :: 3 - Alpha',
                  'Operating System :: OS Independent',
                  'License :: Free for non-commercial use',
                  'Intended Audience :: Developers',

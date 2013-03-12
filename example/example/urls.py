@@ -6,8 +6,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 # Enable Brillixy extra customizations
-from brillixy import site as brillixy
-brillixy.setup(admin.site)
+import brillixy.site
+brillixy.site.setup(admin.site)
 
 urlpatterns = patterns('',
     # Examples:

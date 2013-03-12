@@ -1,27 +1,27 @@
-Disclaimer
-==========
-
-Yet, Brillixy may work fine with simple projects, it's in active development at the moment to be more robust and fit more complex ones.
-
-About
-=====
+Overview
+========
 
 Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
+
+Brillixy official home page:
+http://05bit.com/brillixy/
 
 Requirements
 ============
 
-Django 1.4.x/1.5.x is supported and required. Actually it may work with Django 1.3.x, but it's not well tested yet.
+Django 1.4.x/1.5.x is supported. Django 1.3.x support is not available at the moment.
 
 Features
 ========
 
-After installation you'll get almost fully featured Django admin with refined design powered by responsive Twitter Bootstrap layout.
+Yet, Brillixy may work fine with simple projects, it's in active development at the moment to be more robust and fit more complex ones.
+
+After installation you'll get fully featured Django admin with refined design powered by responsive Twitter Bootstrap layout.
 
 All basic admin features are implemented at the moment. Also you will get some extras::
 
     * global header logo & text customization
-    * customizable dashboard
+    * custom dashboard panels API
 
 Installation
 ============
@@ -55,9 +55,9 @@ Standard Django admin should be enabled and configured as usually.
     from django.contrib import admin
     admin.autodiscover()
 
-    # Enable Brillixy extra customizations
-    from brillixy import site as brillixy
-    brillixy.setup(admin.site)
+    # Setup Brillixy views & templates
+    import brillixy.site
+    brillixy.site.setup(admin.site)
 
 Customization
 =============
@@ -76,7 +76,19 @@ Here's basic example of customization code in settings file from ``example`` pro
 
     BRILLIXY_BRANDING = {
         'logo': '%slogo.png' % STATIC_URL,
+        'title': u"Brillixy Demo",
     }
+
+Troubleshooting
+===============
+
+If you see old or broken admin interface that may be custom admin templates that overrides Brillixy's templates.
+
+Please make sure:
+
+    * you don't have 'admin/*' templates dir in your ``TEMPLATE_DIRS``
+    * you don't have apps before ``brillixy`` in ``INSTALLED_APPS`` that overrides 'admin/*' templates
+    * you don't have ModelAdmin or inlines that use custom templates based on default admin templates
 
 License, commercial usage
 =========================
@@ -85,7 +97,7 @@ License, commercial usage
 
 Brillixy by is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License http://creativecommons.org/licenses/by-nc/3.0/
 
-For commercial usage you should purchase commercial license. Pricing model is in development at the moment to be fair. Currently "pay as you want" pricing model is active. You're welcome to share your considerations with us. Please contact Alexey Kinyov <rudy@05bit.com>.
+For commercial usage we're selling commercial license at our official site http://05bit.com/brillixy/. You're welcome!
 
 Feedback
 ========
