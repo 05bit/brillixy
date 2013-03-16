@@ -1,12 +1,14 @@
 # CSS & JavaScript defaults
 BRILLIXY_MEDIA = {
     'default': (
+        # 3rd party libs
         'brillixy/bootstrap/css/bootstrap.min.css',
         'brillixy/fontawesome/css/font-awesome.min.css',
         'brillixy/fontawesome/css/font-awesome-ie7.min.css',
-        'brillixy/css/common.css',
         'brillixy/jquery/jquery.min.js',
         'brillixy/bootstrap/js/bootstrap.min.js',
+        # custom
+        'brillixy/css/common.css',
     ),
 
     'index': (

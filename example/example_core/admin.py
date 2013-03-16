@@ -6,7 +6,7 @@ from example_core.models import Post, PostFile
 class MyModelsPanel(AllModelsPanel):
     def app_groups(self):
         return (
-            # No title for group
+            # You cal also define empty title for group
             (u"Blog", ('example_core',)),
 
             # With title for group

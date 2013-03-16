@@ -74,6 +74,8 @@ Here's basic example of customization code in settings file from ``example`` pro
         'title': u"Brillixy Demo",
     }
 
+Read more about extra customizations in docs: https://github.com/05bit/brillixy/tree/master/docs.
+
 Troubleshooting
 ===============
 
