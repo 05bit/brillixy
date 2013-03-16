@@ -2,6 +2,10 @@
 {% load i18n l10n %}
 {% load url from future %}
 
+{% block extrahead %}
+{% media_for 'delete' %}
+{% endblock %}
+
 {% block content %}
     {% if perms_lacking or protected %}
         {% if perms_lacking %}

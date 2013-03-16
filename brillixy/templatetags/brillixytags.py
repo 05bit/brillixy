@@ -1,8 +1,10 @@
+import re
 from django import template
 from django.conf import settings
 from django.contrib.admin.views.main import PAGE_VAR
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+from brillixy import defaults
 
 
 register = template.Library()
@@ -73,3 +75,37 @@ def page_number(cl, i):
     else:
         return mark_safe('<a href="%s" class="btn">%s</a> ' % (
            cl.get_query_string({PAGE_VAR: i}), i+1))
+
+
+@register.simple_tag
+def media_for(name):
+    """ Get CSS and JavaScript inclusion code for page by ``name``.
+    """
+    media = []
+    # unknown = []
+    config = getattr(settings, 'BRILLIXY_MEDIA', defaults.BRILLIXY_MEDIA)
+    for item in config.get(name, ()):
+        if callable(item):
+            item = item(name)
+        if item.startswith('<'):
+            media.append(item)
+        else:
+            item_type = item.rsplit('.', 1)[-1].lower()
+            item_path = '://' in item and item or (settings.STATIC_URL + item)
+
+            if item_type == 'js':
+                item_str = '<script type="text/javascript" src="%s"></script>' % item_path
+            elif item_type == 'css':
+                item_str = '<link rel="stylesheet" type="text/css" href="%s" />' % item_path
+            elif item_type == 'less':
+                item_str = '<link rel="stylesheet/less" type="text/css" href="%s" />' % item_path
+            else:
+                raise Exception("Unknown meida type for item: %s" % item)
+                # unknown.append((item_type, item))
+
+            ie_match = re.search(r'-(ie(\d))', item, re.IGNORECASE)
+            if ie_match:
+                media.append('<!--[if IE %s]>%s<![endif]-->' % (ie_match.groups()[1], item_str))
+            else:
+                media.append(item_str)
+    return mark_safe('\n'.join(media))

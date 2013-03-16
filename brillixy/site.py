@@ -1,6 +1,6 @@
 import types
 from django.conf import settings
-from django.contrib.admin import AdminSite
+from django.contrib.admin import AdminSite as _AdminSite
 from brillixy import views
 from brillixy.panels import AllModelsPanel
 
@@ -16,11 +16,11 @@ def setup(site):
 def setup_templates(site):
     """Setup custom templates for admin site.
     """
-    site.index_template = AdminkitSite.index_template
-    site.login_template = AdminkitSite.login_template
-    site.logout_template = AdminkitSite.logout_template
-    site.password_change_template = AdminkitSite.password_change_template
-    site.password_change_done_template = AdminkitSite.password_change_done_template
+    site.index_template = AdminSite.index_template
+    site.login_template = AdminSite.login_template
+    site.logout_template = AdminSite.logout_template
+    site.password_change_template = AdminSite.password_change_template
+    site.password_change_done_template = AdminSite.password_change_done_template
 
 
 def setup_views(site):
@@ -71,8 +71,8 @@ def get_panels(site, request):
     return panels
 
 
-class AdminkitSite(AdminSite):
-    """Base class for Brillixy site. You can use it to setup
+class AdminSite(_AdminSite):
+    """Base class for Brillixy admin site. You can use it to setup
     custom admin interface from scratch. Probably you should not
     use it if you need only basic customizations.
     """
@@ -91,4 +91,4 @@ class AdminkitSite(AdminSite):
     def get_urls(self):
         """Admin URLs.
         """
-        return get_urls(self, super(AdminkitSite, self).get_urls())
+        return get_urls(self, super(AdminSite, self).get_urls())

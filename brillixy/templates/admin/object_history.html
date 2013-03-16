@@ -1,9 +1,9 @@
 {% extends "brillixy/base.html" %}
-{% load admin_urls i18n %}
+{% load admin_urls brillixytags i18n %}
 {% load url from future %}
 
-{% block extrastyle %}
-    <link href="{{ STATIC_URL }}brillixy/css/history.css" rel="stylesheet" type="text/css" />
+{% block extrahead %}
+{% media_for 'history' %}
 {% endblock %}
 
 {% block breadcrumbs-middle %}

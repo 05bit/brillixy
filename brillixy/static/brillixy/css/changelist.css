@@ -1,45 +1,46 @@
+/** Filters
+*/
 #changelist-filter {}
     #changelist-filter h2 { font-size: 1.25em; line-height: 1.25em; margin-top: 0px; }
     #changelist-filter h3 { font-size: 1.0em; line-height: 1em; margin-top: 0px; }
     #changelist-filter .nav-header { padding-left: 0px; }
 
-#changelist-search {
-    margin-bottom: 15px;
-}
+/** Search
+*/
+#changelist-search { margin-bottom: 15px; }
     #changelist-search h2 { font-size: 1.25em; line-height: 1.25em; margin-top: 0px; }
     #changelist-search form { margin-bottom: 0px; }
         #changelist-search .input-append { margin-bottom: 0px; }
 
-    #searchbar { width: 100%; }
-        #searchbar .search-query { width: 85%; }
-    #search-submit {
-        text-align: center;
-        margin-top: 0.5em; margin-bottom: 0;
-    }
-        #search-submit button {
-            width: 100%;
-        }
+#searchbar { width: 100%; }
+    #searchbar .search-query { width: 85%; }
 
-#changelist-actions {
-    margin-bottom: 15px;
+#search-submit {
+    text-align: center;
+    margin-top: 0.5em; margin-bottom: 0;
 }
-    #changelist-actions > span {
-        margin-right: 15px;
+    #search-submit button {
+        width: 100%;
     }
+
+/** Actions
+*/
+#changelist-actions { margin-bottom: 15px; }
+    #changelist-actions > span { margin-right: 15px; }
 
 .action-checkbox { width: 1.5em; }
     .action-checkbox-toggle,
     .action-checkbox .text,
     .action-checkbox { text-align: center !important; }
 
-.sortoptions {
-    display: inline-block;
-}
-    .sortoptions a {
-        text-decoration: none;
-    }
-
+/** Date hierarchy
+*/
 #date-hierarchy {
     padding: 5px;
     background-color: #fafafa;
 }
+
+/** Sorting
+*/
+.sortoptions { display: inline-block; }
+    .sortoptions a { text-decoration: none; }

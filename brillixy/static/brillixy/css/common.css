@@ -1,6 +1,22 @@
+/** Commons & typo
+*/
 body {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: 1.0em;
+}
+
+h3 {
+    font-size: 1.0em;
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: 1.0em;
 }
 
 .well {
@@ -11,6 +27,8 @@ body {
     padding: 10px;
 }
 
+/** Errors & alerts
+*/
 .errorlist {
     list-style: none;
     color: #b94a48;
@@ -26,23 +44,22 @@ body {
 
     }
 
-.help-inline {
-    font-size: smaller;
-    color: #999;
-    padding-left: 0px;
-}
-
 .alert > :last-child {
     margin-bottom: 0;
 }
 
-#branding .logo,
-#branding .title {
-    display: inline-block;
+/** Branding
+*/
+#branding {
+    position: relative    
 }
-    #branding .logo img {
-        margin-right: 2em;
+    #branding .logo,
+    #branding .title {
+        display: inline-block;
     }
+        #branding .logo img {
+            margin-right: 2em;
+        }
     #branding .title {
         font-size: 1.5em;
         line-height: 1.8em;

@@ -6,126 +6,122 @@
     <meta charset="utf-8">
     <title>{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}</title>
 
-    <script src="http://code.jquery.com/jquery.min.js"></script>
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
+    {% media_for 'default' %}
 
-    <link href="{{ STATIC_URL }}brillixy/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!--[if IE 7]><link rel="stylesheet" href="{{ STATIC_URL }}brillixy/fontawesome/css/font-awesome-ie7.min.css"><![endif]-->
-    <link href="{{ STATIC_URL }}brillixy/css/common.css" rel="stylesheet" type="text/css" />
+    {% if LANGUAGE_BIDI %}
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />
+    {% endif %}
 
-    {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
-    <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+    <script type="text/javascript">
+    window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";
+    </script>
 
     {% block extrastyle %}{% endblock %}
     {% block extrahead %}{% endblock %}
 </head>
 
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
-
     {% if not is_popup %}
-        <!-- Header -->
-        <div id="header">
-            <div class="container">
-                <div class="row">
-                    <div id="branding" class="span8" style="position: relative">
-                        {% block branding %}
-                            <span class="logo">
-                                <a href="{% url 'admin:index' %}">{% branding_logo %}</a>
-                            </span>
+    <!-- Header -->
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div id="branding" class="span8">
+                    {% block branding %}
+                    <span class="logo">
+                        <a href="{% url 'admin:index' %}">{% branding_logo %}</a>
+                    </span>
 
-                            <h1 class="title">
-                                <a href="{% url 'admin:index' %}">{% branding_title %}</a>
-                            </h1>
+                    <h1 class="title">
+                        <a href="{% url 'admin:index' %}">{% branding_title %}</a>
+                    </h1>
+                    {% endblock %}
+                </div>
+                <div id="user-links" class="span4">
+                    {% if user.is_active and user.is_staff %}
+                    <div id="user-tools" class="pull-right">
+                        {% trans 'Welcome,' %}
+                        <strong>{% filter force_escape %}{{ user|user_nice_name }}{% endfilter %}</strong>.
+
+                        {% block userlinks %}
+                            <div>
+                            {% url 'django-admindocs-docroot' as docsroot %}
+                            {% if docsroot %}
+                                <a href="{{ docsroot }}" class="btn">{% trans 'Documentation' %}</a>
+                            {% endif %}
+
+                            {% if user.has_usable_password %}
+                                <a href="{% url 'admin:password_change' %}" class="btn btn-small">{% trans 'Change password' %}</a>
+                            {% endif %}
+
+                            <a href="{% url 'admin:logout' %}" class="btn btn-small">{% trans 'Log out' %}</a>
+                            </div>
                         {% endblock %}
                     </div>
-                    <div class="span4">
-                        {% if user.is_active and user.is_staff %}
-                        <div id="user-tools" class="pull-right">
-                            {% trans 'Welcome,' %}
-                            <strong>{% filter force_escape %}{{ user|user_nice_name }}{% endfilter %}</strong>.
-
-                            {% block userlinks %}
-                                <div>
-                                {% url 'django-admindocs-docroot' as docsroot %}
-                                {% if docsroot %}
-                                    <a href="{{ docsroot }}" class="btn">{% trans 'Documentation' %}</a>
-                                {% endif %}
-
-                                {% if user.has_usable_password %}
-                                    <a href="{% url 'admin:password_change' %}" class="btn btn-small">{% trans 'Change password' %}</a>
-                                {% endif %}
-
-                                <a href="{% url 'admin:logout' %}" class="btn btn-small">{% trans 'Log out' %}</a>
-                                </div>
-                            {% endblock %}
-                        </div>
-                        {% endif %}
-                    </div>
+                    {% endif %}
                 </div>
             </div>
-            <hr>
-
-            <!-- Breadcrumbs -->
-            {% if not is_popup %}
-            {% block breadcrumbs %}
-            <div class="container">
-                <ul class="breadcrumb">
-                    <li>
-                        <a href="{% url 'admin:index' %}" class="btn btn-primary"><i class="icon-list"></i> {% trans 'Home' %}</a>
-                    </li>
-                    
-                    {% block breadcrumbs-middle %}
-                    {% endblock %}
-
-                    {% block breadcrumbs-title %}
-                        {% if title %}
-                        <li><span class="divider">/</span> <strong>{{ title }}</strong></li>
-                        {% endif %}
-                    {% endblock %}
-                </ul>
-            </div>
-            {% endblock %}
-            {% endif %}
-
         </div>
-        <!-- END Header -->
+        <hr>
+
+        <!-- Breadcrumbs -->
+        {% if not is_popup %}
+        {% block breadcrumbs %}
+        <div class="container">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="{% url 'admin:index' %}" class="btn btn-primary"><i class="icon-list"></i> {% trans 'Home' %}</a>
+                </li>
+                
+                {% block breadcrumbs-middle %}
+                {% endblock %}
+
+                {% block breadcrumbs-title %}
+                    {% if title %}
+                    <li><span class="divider">/</span> <strong>{{ title }}</strong></li>
+                    {% endif %}
+                {% endblock %}
+            </ul>
+        </div>
+        {% endblock %}
+        {% endif %}
+
+    </div>
+    <!-- END Header -->
     {% endif %}
 
-    <!-- Messages -->
     {% block messages %}
-        {% if messages %}
-        <div class="container">
-            {% for message in messages %}
-            <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
-                <a class="close" data-dismiss="alert">&times;</a>
-                {{ message|capfirst }}
-            </div>
-            {% endfor %}
+    {% if messages %}
+    <!-- Messages -->
+    <div class="messages container">
+        {% for message in messages %}
+        <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %}">
+            <a class="close" data-dismiss="alert">&times;</a>
+            {{ message|capfirst }}
         </div>
-        {% endif %}
-    {% endblock messages %}
+        {% endfor %}
+    </div>
     <!-- END Messages -->
-
+    {% endif %}
+    {% endblock %}
+    
     <!-- Content -->
     <div id="content">
         <div class="container">
-        {% block pretitle %}{% endblock %}
-        
-        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+        {% block content_title %}
+        {% if title %}<h1>{{ title }}</h1>{% endif %}
+        {% endblock %}
         
         {% block content %}
-            {% block object-tools %}{% endblock %}
-            {{ content }}
+        {% block object-tools %}{% endblock %}
+        {{ content }}
         {% endblock %}
-
-        {% block sidebar %}{% endblock %}
         </div>
     </div>
     <!-- END Content -->
 
-    {% block footer %}<div id="footer"></div>{% endblock %}
+    <!-- Footer -->
+    <div id="footer">{% block footer %}{% endblock %}</div>
+    <!-- END Footer -->
 </body>
-
 </html>

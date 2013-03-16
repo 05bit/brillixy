@@ -2,19 +2,9 @@
 {% load brillixytags admin_urls admin_list i18n %}
 {% load url from future %}
 
-{% block extrastyle %}
-    <link href="{{ STATIC_URL }}brillixy/css/changelist.css" rel="stylesheet" type="text/css" />
-{% endblock %}
-
 {% block extrahead %}
-    <script type="text/javascript">
-        $(function() {
-            $('#action-toggle').change(function(e) {
-                var checked = $(this).prop('checked');
-                $('td.action-checkbox input[type=checkbox]').prop('checked', checked);
-            });
-        });
-    </script>
+{{ media }}
+{% media_for 'change_list' %}
 {% endblock %}
 
 {% block content_title %}{% endblock %}

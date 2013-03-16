@@ -1,46 +1,5 @@
-/** Common typo
+/** Form look
 */
-
-h2 {
-    font-size: 1.2em;
-    line-height: 1.2em;
-    margin-top: 0;
-    margin-bottom: 1.0em;
-}
-
-h3 {
-    font-size: 1.0em;
-    line-height: 1.2em;
-    margin-top: 0;
-    margin-bottom: 1.0em;
-}
-
-/** Form
-*/
-
-.form-errors {
-    margin-top: 1em;
-}
-
-.form-info {
-    margin-top: 1em;
-}
-    .form-info > :last-child {
-        margin-bottom: 0;
-    }
-
-a.add-another {
-    text-decoration: none;
-}
-
-input[type="file"] {
-    line-height: normal !important;
-    height: auto;
-    font-size: 1.2em;
-    line-height: 1.2em;
-    margin-top: 0.5em;
-}
-
 .form-body {
     margin-top: 30px;
 }
@@ -54,11 +13,35 @@ input[type="file"] {
         background-color: #f9f9f9;
     }
 
+a.add-another {
+    text-decoration: none;
+}
+
+/** Errors & help
+*/
+.form-errors { margin-top: 1em; }
+
+.form-info { margin-top: 1em; }
+    .form-info > :last-child { margin-bottom: 0; }
+
+.help-inline {
+    font-size: smaller;
+    color: #999;
+    padding-left: 0px;
+}
+
 /** Inputs
 */
-
 textarea {
     width: 80%;
+}
+
+input[type="file"] {
+    line-height: normal !important;
+    height: auto;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin-top: 0.5em;
 }
 
 .datetime input {
@@ -80,7 +63,6 @@ textarea {
 
 /** Calendar widget
 */
-
 .calendarbox {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -146,7 +128,6 @@ textarea {
 
 /** Selector widget
 */
-
 .selector {
     position: relative;
     vertical-align: top;
