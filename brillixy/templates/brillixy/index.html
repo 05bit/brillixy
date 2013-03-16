@@ -13,7 +13,7 @@
     <div class="row">
     {% for panel in panels %}
         {% if panel.has_perm %}
-        <div class="span{{ panel.span|default:6 }} panel">
+        <div class="span{{ panel.span|default:6 }} panel{% if panel.styles %} {{ panel.styles }}{% endif %}">
             {% if panel.title %}
                 <h2>{{ panel.title }}</h2>
             {% endif %}

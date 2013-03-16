@@ -32,10 +32,11 @@ BRILLIXY_INDEX = {
 
 Class attributes:
 
- * **title** - title for rendering panel
  * **template** - template used to render panel
- * **span** - integer number, the width of span, e.g. `span = 6` (default) means rendering with `span6` css class
+ * **title** - title for rendering panel
  * **permissions** - list of permissions required to see the panel, default is empty value, so every user with access to admin interface can see it
+ * **span** - integer number, the width of span, e.g. `span = 6` (default) means rendering with `span6` css class
+ * **styles** - string with extra css classes for panel
 
 Instance variables and methods:
 
@@ -50,10 +51,14 @@ This panel is included by default in `BRILLIXY_INDEX` setting and renders all mo
 
  * `app_groups`(self) - this method returns list or tuple of 2-tuples ('Group name', [apps list]), so apps are regrouped on render.
 
+ * **styles** - can be empty or set to 'panel-big' for larger fonts
+
  Here's example of panel class wich groups `django.contrib.auth` and `django.contrib.sites` together:
 
 ```python
 class MyModelsPanel(AllModelsPanel):
+    styles = 'panel-big'
+
     def app_groups(self):
         return (
             # No title for group

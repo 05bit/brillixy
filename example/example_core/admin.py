@@ -4,6 +4,8 @@ from example_core.models import Post, PostFile
 
 
 class MyModelsPanel(AllModelsPanel):
+    styles = 'panel-big'
+
     def app_groups(self):
         return (
             # You cal also define empty title for group
