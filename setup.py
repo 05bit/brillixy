@@ -3,7 +3,7 @@
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-version = '0.6'
+version = '0.6.1'
 
 LONG_DESCRIPTION = """
 Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
