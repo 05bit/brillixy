@@ -92,10 +92,12 @@ BRILLIXY_MEDIA = {
 
     'change_list': (
         'brillixy/css/changelist.css',
+        'brillixy/js/changelist.js',
     ),
 
     'change_form': (
         'brillixy/css/changeform.css',
+        'brillixy/js/changeform.js',
     ),
 
     'history': (
