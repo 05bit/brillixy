@@ -1,7 +1,7 @@
 import os
 from settings_base import *
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
