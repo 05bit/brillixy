@@ -21,7 +21,7 @@ urlpatterns = patterns('',
 )
 
 # Serve media for development mode
-if settings.DEBUG:
+if settings.DEBUG or getattr(settings, 'SERVE_MEDIA', False):
     urlpatterns += patterns('',
         url(r'^%s(?P<path>.*)$' % settings.MEDIA_URL.lstrip('/'),
         	'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
