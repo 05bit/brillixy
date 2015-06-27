@@ -1,6 +1,6 @@
 from django.contrib import admin
 from brillixy.panels import AllModelsPanel
-from example_core.models import Post, PostFile
+from example.core.models import Post, PostFile
 
 
 class MyModelsPanel(AllModelsPanel):
@@ -9,7 +9,7 @@ class MyModelsPanel(AllModelsPanel):
     def app_groups(self):
         return (
             # You cal also define empty title for group
-            (u"Blog", ('example_core',)),
+            (u"Blog", ('core',)),
 
             # With title for group
             (u"Auth & Sites", ('auth', 'sites')),

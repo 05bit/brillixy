@@ -4,6 +4,6 @@
 *.pyo
 *.egg-info/*
 dist/*
-example/example/settings.py
-example/example/media/*
-example/example/static/*
+example/settings.py
+example/media/*
+example/static/*

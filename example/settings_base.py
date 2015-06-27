@@ -2,7 +2,7 @@
 import os
 
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -100,7 +100,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'example_core.backends.DemoBackend',
+    'example.core.backends.DemoBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # Place Brillixy right before admin
     'brillixy',
     # Uncomment the next line to enable the admin:
@@ -130,7 +131,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
-    'example_core',
+    'example.core',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -165,7 +166,7 @@ LOGGING = {
 # Brillixy settings
 BRILLIXY_INDEX = {
     'panels': [
-        'example_core.admin.MyModelsPanel',
+        'example.core.admin.MyModelsPanel',
         # 'brillixy.panels.AllModelsPanel',
     ]
 }

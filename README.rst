@@ -64,7 +64,7 @@ Here's basic example of customization code in settings file from ``example`` pro
     # Brillixy settings
     BRILLIXY_INDEX = {
         'panels': [
-            'example_core.admin.MyModelsPanel',
+            'example.core.admin.MyModelsPanel',
             'brillixy.panels.AllModelsPanel',
         ]
     }

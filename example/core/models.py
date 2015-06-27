@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.db import models
+from django.core import urlresolvers
 
 
 class Post(models.Model):
@@ -17,7 +18,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return '/admin/example_core/post/%s/' % self.pk
+        return urlresolvers.reverse('admin:post_change', args=[self.pk])
 
 
 class PostFile(models.Model):

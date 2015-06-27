@@ -62,7 +62,7 @@ class MyModelsPanel(AllModelsPanel):
     def app_groups(self):
         return (
             # No title for group
-            (u"", ('example_core',)),
+            (u"", ('core',)),
 
             # With title for group
             (u"Auth & Sites", ('auth', 'sites')),
