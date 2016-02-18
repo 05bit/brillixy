@@ -3,10 +3,11 @@
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-version = '0.6.1'
+version = '0.6.2'
 
 LONG_DESCRIPTION = """
-Brillixy is out of box improvements for Django admin to provide modern design and straightforward customization capabilities.
+Brillixy is out of box improvements for Django admin to provide modern design and
+straightforward customization capabilities.
 """
 
 def long_description():
@@ -19,7 +20,7 @@ def long_description():
 setup(
     name='brillixy',
     version=version,
-    author='Alexey Kinyov',
+    author='Alexey Kinëv',
     author_email='rudy@05bit.com',
     description='Customizations for Django admin interface.',
     license='Creative Commons Attribution-NonCommercial 3.0 Unported License',
