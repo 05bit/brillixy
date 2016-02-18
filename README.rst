@@ -6,7 +6,7 @@ Brillixy is out of box improvements for Django admin to provide modern design an
 Requirements
 ============
 
-Django 1.4.x/1.5.x is supported. Django 1.3.x support is not available at the moment.
+Django 1.8+ is supported.
 
 Features
 ========
